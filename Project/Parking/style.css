@@ -1,0 +1,61 @@
+/* ページ全体の背景色を設定 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0D1117;
+    font-family: Arial, sans-serif;
+    color: #FABD2C;
+    height: 100vh;
+}
+
+/* 1つ目の長方形 */
+.rectangle-1 {
+    background-color: #282828;
+    position: absolute;
+    top: 148px;
+    left: 31px;
+    width: 450px;
+    height: 900px;
+}
+
+/* 2つ目の長方形 */
+.rectangle-2 {
+    background-color: #282828;
+    position: absolute;
+    top: 25px;
+    left: 31px;
+    width: 450px;
+    height: 104px;
+}
+
+/* 中央に配置する長方形 */
+.rectangle {
+    background-color: #282828;
+    position: absolute;
+    top: 128px;
+    left: 496px;
+    width: 1390px;
+    height: 920px;
+    display: flex;
+    justify-content: center; /* 横方向の中央揃え */
+    padding: 10px;
+    position: relative;
+}
+
+/* タイトルのスタイル（長方形の幅中央に配置、高さを長方形の上にはみ出すようにする） */
+h1 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -124px; /* 長方形を上にはみ出す位置に調整 */
+    left: 50%;
+    transform: translateX(-50%); /* 横方向の中央に配置 */
+}
+
+/* 画像のスタイル */
+.pmark {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
