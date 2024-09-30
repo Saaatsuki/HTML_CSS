@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>モニタリングページ</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Kay Pho Du フォントを読み込む -->
+    <style>
+        @font-face {
+            font-family: 'Kay Pho Du';
+            src: url('KayPhoDu.ttf') format('truetype');
+            /* フォントファイルのパス */
+        }
+    </style>
 </head>
 
 <body>
@@ -13,15 +22,32 @@
     <div class="rectangle-1"></div>
 
     <!-- 2つ目の長方形 -->
-    <div class="rectangle-2"></div>
+    <div class="rectangle-2">
+        <!-- 現在時刻を表示する要素 -->
+        <div id="time-display" class="time-display">23 : 59 : 59</div>
+    </div>
 
     <!-- 中央に配置する長方形 -->
     <div class="rectangle">
         <h1>
             <img src="Paking_area_Pmark.png" alt="Parking Mark" class="pmark">
-            Arking Status
+            arking Status
         </h1>
     </div>
+
+    <script>
+        // JavaScriptで現在の時刻を取得し、毎秒更新
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('time-display').textContent = `${hours} : ${minutes} : ${seconds}`;
+        }
+
+        setInterval(updateTime, 1000); // 1秒ごとに時刻を更新
+        updateTime(); // ページが読み込まれた時点で時刻を表示
+    </script>
 </body>
 
 </html>

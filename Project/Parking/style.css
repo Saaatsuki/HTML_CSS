@@ -15,7 +15,7 @@ body {
     top: 148px;
     left: 31px;
     width: 450px;
-    height: 900px;
+    height: 920px;
 }
 
 /* 2つ目の長方形 */
@@ -26,36 +26,46 @@ body {
     left: 31px;
     width: 450px;
     height: 104px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 時刻表示のスタイル */
+.time-display {
+    font-family: 'Kay Pho Du', sans-serif; /* フォントを設定 */
+    font-size: 4rem; /* フォントサイズを調整 */
+    color: #FE8019;
 }
 
 /* 中央に配置する長方形 */
 .rectangle {
     background-color: #282828;
     position: absolute;
-    top: 128px;
+    top: 148px; /* .rectangle-1と同じにする */
     left: 496px;
     width: 1390px;
-    height: 920px;
+    height: 900px;
     display: flex;
-    justify-content: center; /* 横方向の中央揃え */
+    justify-content: center;
     padding: 10px;
     position: relative;
 }
 
-/* タイトルのスタイル（長方形の幅中央に配置、高さを長方形の上にはみ出すようにする） */
+/* タイトルのスタイル */
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     display: flex;
     align-items: center;
     position: absolute;
-    top: -124px; /* 長方形を上にはみ出す位置に調整 */
+    top: -150px;
     left: 50%;
-    transform: translateX(-50%); /* 横方向の中央に配置 */
+    transform: translateX(-50%);
 }
 
 /* 画像のスタイル */
 .pmark {
-    width: 50px;
+    width: 70px;
     height: auto;
     margin-right: 10px;
 }
