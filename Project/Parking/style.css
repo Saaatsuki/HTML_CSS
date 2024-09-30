@@ -45,7 +45,7 @@ body {
 .time-display {
     font-family: 'Kay Pho Du', sans-serif; /* フォントを設定 */
     font-size: 4rem; /* フォントサイズを調整 */
-    color: #FABD2C;
+    color: #FE8019;
 }
 
 /* 中央に配置する長方形 */
@@ -60,6 +60,7 @@ body {
     justify-content: center; /* 横方向の中央揃え */
     padding: 10px;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* タイトルのスタイル（長方形の幅中央に配置、高さを長方形の上にはみ出すようにする） */
@@ -68,7 +69,7 @@ h1 {
     display: flex;
     align-items: center;
     position: absolute;
-    top: -150px;
+    top: -150px; /* この値は適宜調整してください */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -78,4 +79,17 @@ h1 {
     width: 70px;
     height: auto;
     margin-right: 10px;
+}
+
+/* 中央に配置する長方形内の制約エリア枠線 */
+.restriction-area {
+    position: absolute;
+    top: 20px;  /* .rectangleの上辺からの余白を持たせる */
+    left: 50%;  /* 横方向の中央揃え */
+    transform: translateX(-50%); /* 中央に配置 */
+    width: 950px;  /* 指定された幅 */
+    height: 150px; /* 指定された高さ */
+    border: 10px solid #3572A5; /* 枠線のみ、色は#3572A5 */
+    background-color: transparent; /* 塗りつぶしなし */
+    box-sizing: border-box;
 }
