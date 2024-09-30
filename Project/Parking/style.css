@@ -81,15 +81,50 @@ h1 {
     margin-right: 10px;
 }
 
-/* 中央に配置する長方形内の制約エリア枠線 */
+/* A区画: 中央に配置する長方形内の制約エリア枠線 */
 .restriction-area {
     position: absolute;
-    top: 20px;  /* .rectangleの上辺からの余白を持たせる */
-    left: 50%;  /* 横方向の中央揃え */
-    transform: translateX(-50%); /* 中央に配置 */
+    top: 20px;  /* .rectangleの上辺からの余白 */
+    left: 20px; /* 左揃えで中央の長方形と同じX方向の余白 */
     width: 950px;  /* 指定された幅 */
     height: 150px; /* 指定された高さ */
-    border: 10px solid #3572A5; /* 枠線のみ、色は#3572A5 */
+    border: 10px solid #3572A5; /* 枠線の色 */
+    background-color: transparent; /* 塗りつぶしなし */
+    box-sizing: border-box;
+}
+
+/* B区画 */
+.b-area {
+    position: absolute;
+    top: 240px; /* B区画のY位置 */
+    left: 450px; /* B区画のX位置 */
+    width: 341px; /* B区画の幅 */
+    height: 262px; /* B区画の高さ */
+    border: 10px solid #3572A5; /* 枠線の色 */
+    background-color: transparent; /* 塗りつぶしなし */
+    box-sizing: border-box;
+}
+
+/* C区画 */
+.c-area {
+    position: absolute;
+    top: 570px; /* C区画のY位置 */
+    left: 450px; /* C区画のX位置 */
+    width: 341px; /* C区画の幅 */
+    height: 262px; /* C区画の高さ */
+    border: 10px solid #3572A5; /* 枠線の色 */
+    background-color: transparent; /* 塗りつぶしなし */
+    box-sizing: border-box;
+}
+
+/* D区画 */
+.d-area {
+    position: absolute;
+    top: 20px; /* A区画の上辺と同じ余白 */
+    right: 20px; /* 右端からの余白 */
+    width: 187.36px; /* D区画の幅 */
+    height: calc(100% - 40px); /* 中央長方形の全高から上下の余白を引いた値で高さを自動調整 */
+    border: 10px solid #3572A5; /* 枠線の色 */
     background-color: transparent; /* 塗りつぶしなし */
     box-sizing: border-box;
 }
