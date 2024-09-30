@@ -5,25 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>モニタリングページ</title>
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Kay Pho Du フォントを読み込む -->
-    <style>
-        @font-face {
-            font-family: 'Kay Pho Du';
-            src: url('KayPhoDu.ttf') format('truetype');
-            /* フォントファイルのパス */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- CSSファイルを読み込み -->
 </head>
 
 <body>
     <!-- 1つ目の長方形 -->
-    <div class="rectangle-1"></div>
+    <div class="rectangle-1">
+        <!-- 学校のマーク画像 -->
+        <img src="SchoolMarkYellow.png" alt="School Mark" class="school-mark">
+    </div>
 
-    <!-- 2つ目の長方形 -->
+    <!-- 2つ目の長方形（現在時刻表示）-->
     <div class="rectangle-2">
-        <!-- 現在時刻を表示する要素 -->
         <div id="time-display" class="time-display">23 : 59 : 59</div>
     </div>
 
@@ -45,8 +38,8 @@
             document.getElementById('time-display').textContent = `${hours} : ${minutes} : ${seconds}`;
         }
 
-        setInterval(updateTime, 1000); // 1秒ごとに時刻を更新
-        updateTime(); // ページが読み込まれた時点で時刻を表示
+        setInterval(updateTime, 1000);
+        updateTime();
     </script>
 </body>
 

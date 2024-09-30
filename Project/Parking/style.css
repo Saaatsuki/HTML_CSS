@@ -15,7 +15,17 @@ body {
     top: 148px;
     left: 31px;
     width: 450px;
-    height: 920px;
+    height: 900px;
+    display: flex;
+    justify-content: center; /* 横方向の中央揃え */
+    align-items: flex-end; /* 縦方向は一番下にバランスよく配置 */
+    padding-bottom: 20px; /* 少し余白を持たせる */
+}
+
+/* 学校のマーク画像 */
+.school-mark {
+    width: 395px; /* 画像の幅 */
+    height: 73px; /* 画像の高さ */
 }
 
 /* 2つ目の長方形 */
@@ -31,28 +41,28 @@ body {
     align-items: center;
 }
 
-/* 時刻表示のスタイル */
+/* 現在時刻表示のスタイル */
 .time-display {
     font-family: 'Kay Pho Du', sans-serif; /* フォントを設定 */
     font-size: 4rem; /* フォントサイズを調整 */
-    color: #FE8019;
+    color: #FABD2C;
 }
 
 /* 中央に配置する長方形 */
 .rectangle {
     background-color: #282828;
     position: absolute;
-    top: 148px; /* .rectangle-1と同じにする */
+    top: 148px;
     left: 496px;
     width: 1390px;
     height: 900px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* 横方向の中央揃え */
     padding: 10px;
     position: relative;
 }
 
-/* タイトルのスタイル */
+/* タイトルのスタイル（長方形の幅中央に配置、高さを長方形の上にはみ出すようにする） */
 h1 {
     font-size: 4rem;
     display: flex;
