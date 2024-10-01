@@ -19,15 +19,57 @@ body {
     display: flex;
     justify-content: center; /* 横方向の中央揃え */
     align-items: flex-end; /* 縦方向は一番下にバランスよく配置 */
-    
 }
 
 /* 学校のマーク画像 */
 .school-mark {
     width: 395px; /* 画像の幅 */
     height: 73px; /* 画像の高さ */
-    padding-bottom: 20px; /* 少し余白を持たせる */
+    margin-bottom: 20px; /* 下に余白を持たせて調整 */
 }
+
+
+/* ドーナツ型円グラフのコンテナ */
+.donut-chart-container {
+    position: absolute;
+    top: 50px; /* Y位置 */
+    left: 230px; /* X位置 */
+    width: 155px; /* 幅 */
+    height: 155px; /* 高さ */
+}
+
+/* ドーナツ型円グラフ */
+.donut-chart {
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(#FE8019 54%, #8EC07C 0);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: rotate(0.0000000000000000000000000000000001deg); /* 開始位置を12時の方向に */
+}
+
+/* ドーナツの中央部分を小さくして幅を5pxに見せる */
+.chart-center {
+    background-color: #282828;
+    border-radius: 50%;
+    width: 145px; /* ここで内側の円を設定 */
+    height: 145px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-value {
+    font-family: 'Kay Pho Du', sans-serif;
+    font-size: 65px;
+    color: #FE8019;
+}
+
+
+
 
 /* 2つ目の長方形 */
 .rectangle-2 {
