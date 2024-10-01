@@ -97,7 +97,7 @@ h1 {
 /* B区画 */
 .b-area {
     position: absolute;
-    top: 240px; /* B区画のY位置 */
+    top: 260px; /* B区画のY位置 */
     left: 450px; /* B区画のX位置 */
     width: 341px; /* B区画の幅 */
     height: 262px; /* B区画の高さ */
@@ -128,4 +128,24 @@ h1 {
     border: 10px solid #3572A5; /* 枠線の色 */
     background-color: transparent; /* 塗りつぶしなし */
     box-sizing: border-box;
+}
+
+/* A区画の画像 */
+.kukaku-a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    margin-bottom: -70px; /* A区画の枠に画像が接するように調整 */
+}
+
+/* B～D区画の共通画像スタイル */
+.kukaku-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    margin-left: -70px; /* 枠に画像が接するように調整 */
 }
