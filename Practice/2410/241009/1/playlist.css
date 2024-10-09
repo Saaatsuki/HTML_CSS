@@ -1,28 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
 .fullscreen {
     width: 1258px;
     height: 2408px;
-    background-color: rgb(197, 105, 105);
-    padding: 10px; /* 10pxの内側余白を追加 */
-    box-sizing: border-box; /* パディングを含めたサイズ計算 */
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .bigsquare {
-    width: calc(100% - 30px); /* 余白を考慮した幅 */
-    height: calc(100% - 30px); /* 余白を考慮した高さ */
-    background-color: white; /* 内部の背景色を白に */
-    border: 10px solid #40E0D0; /* ターコイズブルーの枠線 */
-    color: white;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    background-color: white;
+    border: 10px solid #40E0D0;
+    color: black; /* 修正: テキストが白だと見えないため、黒に変更 */
 }
 
-
+.header {
+    top: 100px;
+    height: 100;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
 .header h1 {
-
-    color: #000000; /* タイトルの文字色をターコイズブルーに設定（必要に応じて変更） */
+    width: 500px;
+    height: 300px;
+    color: #000000;
     font-family: 'Kanit', sans-serif;
     font-size: 50px;
-    top: 100px;
     text-align: center;
+    flex-grow: 1;
+    margin: 0;
+    font-weight: bold;
+}
 
-    
+.close-btn {
+    font-size: 50px;
+    background: none;
+    border: none;
+    color: black;
+    font-weight: bold;
+    padding: 50px;
 }
