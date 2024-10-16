@@ -1,0 +1,84 @@
+body {
+    background-color: #f5f5f5;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.mainDiv {
+    background-color: white;
+    height: 300px;
+    width: 180px;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+}
+
+
+.mainDiv > div {
+    height: 300px;
+    width: 180px;
+}
+
+
+/* section:nth-child(1) > .mainDiv:nth-child(1) > div {
+    background-color: #ff6347;
+}
+
+section:nth-child(1) > .mainDiv:nth-child(2) > div {
+    background-color: #008080;
+}
+
+section:nth-child(2) > .mainDiv:nth-child(1) > div {
+    background-color: #DEB887;
+}
+
+section:nth-child(2) > .mainDiv:nth-child(2) > div {
+    background-color: #D7BFD7;
+} */
+
+.Tomato {
+    background-color: #ff6347;
+}
+
+.Teal > div {
+    background-color: #008080;
+}
+
+.Burlywood {
+    background-color: #DEB887;
+}
+
+.Thistle {
+    background-color: #D7BFD7;
+}
+
+
+
+.mainDiv > div > div {
+    height: 100px;
+    width: 180px;
+    background-color: white;
+    position: relative;
+    top: 25px
+}
+
+
+h3 , h5 {
+    margin: 0;
+    line-height: 2.7;
+}
