@@ -1,0 +1,75 @@
+body {
+    background-color: #F5F5F5;
+    /* ページ全体の背景色を薄いグレー（#F5F5F5）にしています。 */
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    /* 見出し（タイトル）を中央に配置するための設定です。 */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* ページのメイン部分を縦に並べるようにしています。 */
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    /* セクションの中の内容を中央に揃える設定です。 */
+}
+
+.mainDiv {
+    background-color: #ffffff;
+    height: 300px;
+    width: 180px;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    /* 色ごとの区切り（mainDiv）の箱を作って、白い背景（#ffffff）にしています。
+       高さは300px、幅は180pxに設定して、周りに10pxの余白を入れています。 */
+}
+
+.mainDiv>div {
+    height: 300px;
+    width: 180px;
+    /* 区切りの中にあるコンテンツのサイズを指定しています。 */
+}
+
+section:nth-child(1)>.mainDiv:nth-child(1)>div {
+    background-color: tomato;
+    /* 最初のセクションの中で、最初の箱の背景色をTomatoにしています。 */
+}
+
+section:nth-child(1)>.mainDiv:nth-child(2)>div {
+    background-color: teal;
+    /* 同じく、次の箱の背景色をTealにしています。 */
+}
+
+section:nth-child(2)>.mainDiv:nth-child(1)>div {
+    background-color: burlywood;
+    /* 次のセクションの最初の箱はBurlywoodという色にしています。 */
+}
+
+section:nth-child(2)>.mainDiv:nth-child(2)>div {
+    background-color: thistle;
+    /* 次の箱の背景色をThistleにしています。 */
+}
+
+.mainDiv>div>div {
+    height: 100px;
+    width: 180px;
+    background-color: #ffffff;
+    position: relative;
+    top: 25px;
+    /* 色の名前と番号を表示するための小さなボックスを作っています。 */
+}
+
+h3, h5 {
+    margin: 0;
+    line-height: 2.7;
+    /* 色の名前（h3）や番号（h5）の文字の間に余計なスペースができないようにし、
+       テキストを少しゆったりした間隔（line-height: 2.7）で表示しています。 */
+}

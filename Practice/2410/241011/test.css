@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;500;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;500;700&display=swap');
 
 * {
     font-family: 'Kanit', sans-serif;
@@ -25,16 +25,15 @@ body {
     height: 10%;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    align-items: center; /*縦*/
+    /* justify-content: center;　横 */
+
 
 /* .header-title h1 {
     
 
 } */
 
-.header h2 {
+/* .header h2 {
     
-    
-}
+     */
