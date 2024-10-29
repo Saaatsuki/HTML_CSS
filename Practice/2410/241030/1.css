@@ -1,0 +1,77 @@
+
+body {
+    width: 1600px;
+    height: 900px;
+    background-color: antiquewhite;
+    /* display: flex;
+    justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    /* flex-directionはflexの方向を定める */
+    /* flex-direction: column;は、要素を縦方向（列）に並べるための設定です。
+    通常、display: flex;で指定した要素はデフォルトで横方向（行）に並びますが、
+    flex-direction: column;を追加することで縦に並ぶように変えられます。 */
+}
+
+
+.box {
+    display: flex;
+    justify-content: center; 
+    /*通常設定のjustify-content: center;は横方向の中央　X　
+    flex-direction: columnにしたあとのjustify-contentは縦方向中央*/
+    width: 180px;
+    height: 320px;
+    margin: 10px;
+    border: 10px solid white;
+    position: relative;
+}
+
+.tomato, .teal, .burlywood, .thistle {
+    width: 100%;
+    height: 100%;
+}
+
+.tomato {
+    background-color: tomato;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.burlywood {
+    background-color: burlywood;
+}
+
+.thistle {
+    background-color: thistle;
+}
+
+.white-box {
+    width: 100%;
+    height: 30%;
+    background-color: white;
+    color: black;
+    text-align: left;
+    position: absolute;  /*親要素の位置を基準に配置される*/
+    top: 20px;
+
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
