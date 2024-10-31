@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;500;700&display=swap');
+
+body {
+    font-family: 'Kanit', sans-serif;
+    width: 900px;
+    height: 1600px;
+    background-color: white;
+    border: 15px solid aquamarine;
+    margin: 30px auto; /* 水平中央に配置 */
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    align-items: center; /* 縦方向に中央揃え */
+    justify-content: center; /* 横方向に中央揃え */
+    position: relative; /*相対位置を設定*/
+}
+
+.header-batsu {
+    font-size: 50px;
+    position: absolute; /* 絶対配置 */
+    left: 0; /* 左端に配置 */
+    margin-left: 20px; /* 左側に少しの余白 */
+}
+
+.header-logo {
+    font-size: 50px;
+    /* margin-left: 50px; ✕との間隔 */
+}
+
+.img {
+    width: 400px;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    margin-right: 80px; /* 画像とテキストの間に余白を追加 */
+}
+
+.now_play {
+    display: flex;
+    align-items: center; /* 画像とテキストを縦方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+    margin-top: 50px;
+}
+
+.now_play-logo h1 {
+    margin: 0;
+    font-size: 80px;
+    color: #333;
+    text-align: left;
+}
+
+.now_play-logo h3 {
+    font-size: 50px;
+}

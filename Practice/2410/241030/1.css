@@ -30,8 +30,10 @@ body {
 .box {
     display: flex;
     justify-content: center; 
-    /*通常設定のjustify-content: center;は横方向の中央　X　
-    flex-direction: columnにしたあとのjustify-contentは縦方向中央*/
+    /*通常設定（デフォルトでflex-direction: row;）のjustify-content: center;は横方向の中央　　
+    flex-direction: columnにしたあとのjustify-contentは縦方向中央
+    もしくはデフォルト(flex-direction: columnにせずに)align-items: center;は縦方向中央
+     display: flexにしたとき*/
     width: 180px;
     height: 320px;
     margin: 10px;
