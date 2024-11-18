@@ -1,0 +1,124 @@
+/* #3.3 Blocks and Inlines (09:28) */
+
+/* h1 {
+    color : yellowgreen;
+    font-size: 50px;
+    text-decoration: underline;
+    font-weight: 800;
+    font-style: italic;
+}
+
+address {
+    text-align: center;
+    color: tomato;
+}
+
+body {
+    background-color: cadetblue;
+} */
+
+html {
+    background-color: rgb(82, 162, 238);
+    height: 450px;
+    width: 450px;
+}
+
+body {
+    margin: 20px;
+    padding: 20px;
+    background-color: pink;
+    height: 430px;
+    width: 430px;
+}
+
+
+div {
+    /* display: inline; */
+    /* 横方向に並ぶ:
+
+    要素は隣接する要素と横に並びます（水平方向）。
+    ブロック要素（divなど）と違い、次の要素が改行されません。
+    幅・高さの制御不可:
+
+    widthやheightを指定しても効果がありません。
+    要素の幅と高さは、内容（テキストや画像など）に応じて自動的に決まります。
+    内側のマージンとパディングは反映される:
+
+    インライン要素にpaddingやmarginを設定すると適用されますが、外側に影響はありません。
+    ブロックレベル要素を含められない:
+
+    通常、インライン要素の中にブロックレベル要素（例: div, p）を入れることはできません。 */
+/* 
+    
+    margin-left: 80px;
+    height: 150px;
+    width: 150px;
+    background-color: white; */
+    margin: 5px;
+    padding: 5px;   
+    /* https://www.w3schools.com/cssref/pr_border-style.php */
+    border: 2px dashed white;
+
+}
+    
+
+#first {
+    background-color: red;
+    height: 150px;
+    width: 150px;
+}
+
+#second {
+    background-color: orange;
+    height: 125px;
+    width: 125px;
+}
+
+#third {
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+}
+
+#fourth {
+    background-color: green;
+    height: 75px;
+    width: 75px;
+}
+ 
+#fifth {
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+}
+
+#sixth {
+    background-color: purple;
+    height: 25px;
+    width: 25px;
+}
+
+
+span {
+    display: inline;
+    background-color: blueviolet;
+    color: white;
+    font-size: 3px;
+    border: 2px solid white;
+    height: 1000px;
+    
+}
+
+link {
+    color: aqua;
+}
+
+img .Cinamoroll{
+    height: 15px;
+    width: 25px;
+}
+
+img .milk {
+    height: 15px;
+    width: 20px;
+}
