@@ -2,8 +2,24 @@ body {
     margin: 20px;
 }
 
-span {
+.btn {
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.aquamarine {
     background-color: aquamarine;
-    padding: 20px;
-    margin: 30px;
+    color: brown;
+}
+
+/* #tomato1 , #tomato2 , #tomato3 {
+    background-color: tomato;
+} */
+
+.tomato {
+    background-color: tomato;
+    color: white;
+
+    /* 角を丸くする */
+
 }
