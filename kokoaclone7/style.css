@@ -1,0 +1,24 @@
+body {
+    height: 1000vh;
+    margin: 50px;
+}
+
+input {
+    border: 1px solid blue;
+}
+
+input :optional {
+    border: 1px solid yellow;
+}
+
+input:required {
+    border: 1px solid tomato;
+}
+
+input[placeholder~="name"] {
+    background-color: aqua;
+}
+
+input[type="password"] {
+    background-color: pink;
+}

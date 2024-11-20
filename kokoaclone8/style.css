@@ -1,0 +1,12 @@
+body {
+    height: 1000vh;
+    margin: 50px;
+}
+
+a {
+    color: pink;
+}
+
+a:visited {
+    background-color: mediumaquamarine;
+}

@@ -1,0 +1,58 @@
+body {
+    /* vh = vaew 見えているスクリーン */
+    height: 100vh;
+
+    /* margin: 20px; */
+    display: flex;
+    /* justify-content: center; /*X値中央 */
+    /* justify-content: flex-end; /*X値+++(右寄) */
+    /* justify-content: flex-start; X値---(左寄) */
+    /* justify-content: space-evenly; /*均等間隔 */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-wrap: wrap-reverse; */
+    /* flex-direction: column; */
+
+
+
+
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    /* margin: 10.5px 10.5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+
+    /* 横一列 */
+    /* display: inline-block; */
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.purple {
+    background-color: purple;
+}
