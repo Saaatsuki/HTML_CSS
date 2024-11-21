@@ -1,0 +1,42 @@
+body {
+    background-color: darkorange;
+}
+
+a{
+    color: white;
+    background-color: tomato;
+    text-decoration: none;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: all 5s ease;
+}
+
+/*クリックした後の状態*/
+a:hover {
+    border-radius: 20px;
+    color: pink;
+    background-color: aqua;
+}
+
+img {
+    width: 300px;
+    height: 170px;
+    border: 1px solid plum;
+    border-radius: 50%;
+
+    /*X上下を押された感じでつぶれる*/
+    /*Y左右を押された感じでつぶれる*/
+    /* transform: rotateY(45deg); */
+
+    /*回転*/
+    /* transform: rotateZ(45deg);
+
+    transform: scale(45deg); */
+
+    transition: all 5s ease;
+}
+
+img:hover {
+    transform: rotateZ(90deg);
+}
