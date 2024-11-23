@@ -1,2 +1,14 @@
 /* https://nykim.work/15 */
 /* https://heroicons.com/ */
+
+/* https://fontawesome.com/icons */
+
+#status-bar {
+    font-size: 10px;
+}
+
+
+#status-bar .icon {
+    width: 10px;
+    height: 10px;
+}
