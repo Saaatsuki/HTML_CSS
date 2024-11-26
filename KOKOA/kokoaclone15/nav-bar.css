@@ -1,0 +1,60 @@
+.status-bar {
+    display: flex;
+    justify-content: center;
+    padding: 5px 3px;
+    font-weight: 600;
+  }
+  .status-bar__column {
+    width: 33%;
+  }
+  .status-bar__column:first-child span {
+    margin-right: 5px;
+  }
+  .status-bar__column:nth-child(2) {
+    display: flex;
+    justify-content: center;
+  }
+  .status-bar__column:last-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .status-bar__column .fa-battery-full {
+    margin: 0px 5px;
+  }
+
+
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9fa;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(121, 121, 121, 0.3);
+  }
+  .nav__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav__link {
+    position: relative;
+    color: #2e363e;
+  }
+  
+  .nav__notification {
+    background-color: tomato;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+  }
