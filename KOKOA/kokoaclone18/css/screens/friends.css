@@ -1,0 +1,16 @@
+#friends-display-link {
+    text-align: center;
+    display: block;
+    background-color: #fafafa;
+    font-size: 10px;
+    font-weight: 600
+}
+
+.fa-solid fa-circle-info {
+    padding: 10px;
+}
+
+#friends-display-link i {
+    color: rgba(0, 0, 0, 0.3);
+    margin: 10px;
+}

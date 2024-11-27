@@ -1,0 +1,37 @@
+.screen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+  
+.scscreen-header__title {
+    font-size: 32px;
+    font-weight: 600;
+}
+  
+.scscreen-header__icons {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.screen-header__icons span {
+    margin-left: 25px;
+}
+
+/* .screen-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: var(--horizontal-space);
+margin-bottom: 15px;
+}
+
+.screen-header__title {
+font-size: 32px;
+font-weight: 600;
+}
+
+.screen-header__icons span {
+margin-left: 25px;
+} */

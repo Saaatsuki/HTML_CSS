@@ -1,0 +1,56 @@
+
+.user-component__column {
+  display: flex;
+  align-items: center;
+}
+
+.user-component__avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 27px;
+  margin: 5px 20px 0px 5px;
+}
+
+.user-component__title {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.main-screen > .ser-component__subtitle{
+  display: flex;
+  justify-content: right;
+}
+
+.user-component__subtitle {
+  margin-top: 8px;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.friends-group-screen {
+    margin-top: 5px;
+}
+
+.friends-screen__channel-header {
+    background-color: #8faff5;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+} 
+
+.friends-screen__channel-header span {
+    margin: 10px 10px;
+    font-size: 10px;
+    font-weight: 600;
+
+}
+.user-component__text {
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.fa-solid fa-chevron-number  {
+    display: flex;
+    justify-content: left;
+}
