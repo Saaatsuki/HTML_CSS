@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Outfit:wght@100..900&display=swap');
+
+body {
+    background-color: black;
+    font-family: "Outfit", sans-serif;;
+}
+
+h1 , h2 , h3 , h4 , h5 , h6 {
+    margin: 0;
+}
+.app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    width: 1000px;
+    height: 1000px;
+    background-color: #f7f7f7;
+}
+
+.screen {
+    height: 70%;
+    width: 60%;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 5px 5px 100px rgba(0, 0, 0, 0.379);
+    padding: 7%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.serect > .now-playing {
+    margin-top: 10%;
+    width: 100%;
+    height: 30%;
+    display: grid;
+    justify-items: center;
+}
+
+.serect > .now-playing img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px rgba(20,48,99, 0.5);
+}
+
+.serect > .now-playing h2 {
+    margin-top: 10px;
+    font-size: 28px;
+}
+
+.serect > .now-playing h5 {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.379);
+}
+
+.serect > .now-playing > .but {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+}
+.serect > .now-playing > .but > 
+button {
+    height: 50px;
+    width: 150px;
+    font-size: 16px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) ;
+}
+
+.serect > .now-playing > .but > .shuffle {
+    margin-right: 5px;
+    background-color: black;
+    color: white;
+} 
+
+.serect > .now-playing > .but > .heart {
+    margin-left: 5px;
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.fa-heart {
+    margin-right: 5px;    
+}
+
+.waiting {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.waiting > .music {
+    height: 80px;
+    width: 100%;
+    border-radius: 15px;
+    display: grid;
+    align-items: center; 
+    margin-top: 10px;
+}
+
+.m2 {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.playing-img {
+    position: relative; 
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+
+}
+
+.playing-img > .overlay {
+    position: absolute;           /* 親要素に重ねる */
+    top: 0;
+    left: 0;
+    width: 100%;                  /* コンテナ全体を覆う */
+    height: 100%;   
+    border-radius: 15px;              
+    background-color: rgba(0, 0, 0, 0.3); /* 半透明の黒 */
+    display: flex;                /* アイコンの中央配置に使用 */
+    justify-content: center;      /* 横方向中央 */
+    align-items: center;          /* 縦方向中央 */
+    color: white;                 /* アイコンの色 */
+}
+
+.m2 img {
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+}
+
+.waiting > .music > .sq {
+    margin: 0px 7px;
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 4fr 0.5fr;
+}
+
+.waiting > .music > .sq > img {
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+}
+
+.waiting > .music > .sq > .info {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.waiting > .music > .sq > .info h5 {
+    color: rgba(0, 0, 0, 0.379);
+}
+
+.waiting > .music > .sq > .info h4 {
+    margin-top: 8px;
+}
+
+.now {
+    background-color: black;
+    margin-top: 5%;
+    width: 100%;
+    height: 65px;
+    border-radius: 50px;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.now > .mu-info {
+    margin-left: 15%;
+    display: grid;
+    align-content: center; 
+}
+
+.now h5 {
+    color: rgb(154, 153, 153);
+}
+
+.now > .mark {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-right: 15%;
+}
+
+.playlist > .playing-now {
+    width: 100%;
+    height: 65%;
+    margin-top: 40px;
+    display: grid;
+    grid-template-rows:8fr 1fr 1fr ;
+    justify-items: center;
+    align-items: center;
+}
+
+
+.playlist > .playing-now img {
+    width: 90%;
+    height: width;
+    box-shadow: 0 0 40px rgba(123, 113, 8, 0.861);
+    border-radius: 20px;
+
+}
+
+.playlist > .playing-now h4 {
+    color: gray;
+}
+
+.playlist > .time {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    margin: 1px auto;
+}
+
+/* スライダーの全体スタイル */
+.seek-bar {
+    width: 100%;
+    appearance: none;
+    height: 8px; /* スライダーの高さ */
+    background: #ddd; /* デフォルトの背景色（未再生部分） */
+    position: relative;
+    border-radius: 4px; /* 丸みをつける */
+    overflow: hidden; /* オーバーフローを隠す */
+}
+
+/* 再生済み部分のスタイル */
+.seek-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--progress, 0%); /* 再生済み部分の長さ */
+    height: 100%;
+    background: black; /* 再生済み部分の色 */
+    z-index: 1;
+}
+
+/* スライダーのつまみ部分 */
+.seek-bar::-webkit-slider-thumb {
+    appearance: none; /*デフォルトスタイルを無効化*/
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+
+}
+
+.seek-bar::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.seek-bar::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.playlist > .mark {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
