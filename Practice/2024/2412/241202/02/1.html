@@ -12,46 +12,52 @@
         <h4>We are looking for individuals with technical knowledge and experience in HTML, CSS, and JavaScript.</h4>
     </div>
     <hr>
-    <main>
-        <div class="Per-info">
-            <div class="Per-info-tit">
-                <h4>Personal Information</h4>
-            </div>
-            <div class="Per-info-inp">
-                <div class="in"><span>name </span><input type="text" placeholder="Enter your name without spaces."></div>
-                <div class="in"><span>Contact Information </span><input type="tel"></div>
-            </div>
-        </div>
-        <div class="select">
-            <div class="sel-tle">
-                <h4>Position Applying For</h4>
-            </div>
-            <div class="sel-inp">
-                <label>
-                    <input type="radio"> Web Publishing
-                </label><br>
-                <label>
-                    <input type="radio"> Web Frontend
-                </label><br>
-                <label>
-                    <input type="radio"> Mobile App
-                </label><br>
-            </div>        
-        </div>
-        <div class="Motivation">
-            <!-- [Submit] [Rewrite] -->
-            <!-- Motivation for Applying -->
-            <h4>Motivation for Applying</h4>
-            <div class="Mov-inp">
-                <textarea id="message" name="message" rows="5" cols="50"></textarea>
-                <div class="but">
-                    <button type="submit">Submit</button>
-                    <button type="reset">Rewrite</button>
+    <!-- Form starts here -->
+    <form action="/submit" method="post">
+        <main>
+            <div class="Per-info">
+                <div class="Per-info-tit">
+                    <h4>Personal Information</h4>
+                </div>
+                <div class="Per-info-inp">
+                    <div class="in">
+                        <span>name </span>
+                        <input type="text" name="name" placeholder="Enter your name without spaces.">
+                    </div>
+                    <div class="in">
+                        <span>Contact Information </span>
+                        <input type="tel" name="contact">
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    
+            <div class="select">
+                <div class="sel-tle">
+                    <h4>Position Applying For</h4>
+                </div>
+                <div class="sel-inp">
+                    <label>
+                        <input type="radio" name="position" value="Web Publishing"> Web Publishing
+                    </label><br>
+                    <label>
+                        <input type="radio" name="position" value="Web Frontend"> Web Frontend
+                    </label><br>
+                    <label>
+                        <input type="radio" name="position" value="Mobile App"> Mobile App
+                    </label><br>
+                </div>        
+            </div>
+            <div class="Motivation">
+                <h4>Motivation for Applying</h4>
+                <div class="Mov-inp">
+                    <textarea id="message" name="motivation" rows="5" cols="50"></textarea>
+                    <div class="but">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Rewrite</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </form>
+    <!-- Form ends here -->
 </body>
 </html>

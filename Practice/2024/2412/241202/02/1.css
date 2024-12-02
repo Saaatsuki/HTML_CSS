@@ -47,3 +47,14 @@ textarea {
     width: 80%;
     height: auto;
 }
+
+button {
+    background-color: white;
+    font-family: "Playfair Display", serif;
+    height: 30px;
+    width: 100px;
+    border: 0cap dotted black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    margin: 10px 10px 0px 0px;
+}   
