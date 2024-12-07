@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=DM+Serif+Text:ital@0;1&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Vibur&display=swap');
+
+body {
+    background-color: #d4ecf3;
+    font-family: "Vibur", cursive;
+}
+
+h1 , h2 , h3 , h4 , h5 {
+    margin: 0;
+}
+
+/* img {
+    object-fit: cover;
+} */
+
+header {
+    background-color:#aedde6;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header h3 {
+    font-size: 30px;
+}
+
+header > .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+header > .menu > p {
+    margin: 10px;
+    font-size: 25px;
+}
+
+.mainimg {
+    width: 100%;
+    max-width: 1920px;
+    height: 600px;
+    object-fit: cover;
+
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+
+    /* 透過部分を有効にする */
+    display: block;
+}
+
+
+
+main > .About {
+    margin: 5% 10% 10% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main img {
+    object-fit: cover;
+}
+
+main h1 {
+    font-size: 50px;
+    text-decoration: underline;
+    color: rgb(4, 50, 112);
+}
+
+.About-text > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    box-shadow: 0 0 100px rgba(7, 79, 137, 0.9);
+    margin-right: 50px;
+}
+
+.About-text {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+main > .Friends {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friends-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 50px 10% 0px 10%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10% 0 10% ;
+}
+
+.box > img {
+    width: 120%;
+    height: 50%;
+    margin-bottom: 10px;
+    border: 1px solid rgb(6, 6, 70);
+    border-radius: 15px;
+}
