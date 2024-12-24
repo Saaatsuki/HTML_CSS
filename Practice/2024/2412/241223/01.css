@@ -1,3 +1,27 @@
 body {
     font-family: 'Times New Roman', Times, serif;
+    background-color: #4b4948;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.clock img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.clock-digi {
+    color: #4b4948;
+    -webkit-text-stroke: 2px #f19ec2;
+    font-size: 100px;
 }
