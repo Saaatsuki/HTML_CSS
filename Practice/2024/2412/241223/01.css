@@ -3,7 +3,7 @@ body {
     background-color: #4b4948;
     margin: 0;
     display: flex; 
-    flex-direction: column ;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -18,7 +18,7 @@ body {
 
 .clock-digital img {
     width: 100px;
-    margin-bottom: 10px;
+    margin: 0 10px;
 }
 
 .clock-digi {
@@ -35,9 +35,43 @@ body {
     position: relative;
 }
 
+.center-image {
+    position: absolute;
+    width: 120px; /* 画像のサイズ */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* 針より上に配置 */
+}
+
 .lineHour {
+    position: absolute;
     width: 10px;
     height: 150px;
     background: #f19ec2;
+    top: calc(50% - 150px);
+    left: calc(50% - 5px);
+    transform-origin: bottom;
+    transform: rotate(0deg);
+}
+
+.lineMin {
     position: absolute;
+    width: 4px;
+    height: 200px;
+    background: #f5a9d0;
+    top: calc(50% - 200px);
+    left: calc(50% - 2px);
+    transform-origin: bottom;
+}
+
+.lineSec {
+    position: absolute;
+    width: 1px;
+    height: 200px;
+    background: #f8d3e5;
+    width: 5px;
+    top: calc(50% - 200px);
+    left: calc(50% - 1px);
+    transform-origin: bottom;
 }
