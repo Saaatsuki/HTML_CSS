@@ -9,6 +9,17 @@ body {
     height: 100vh;
 }
 
+.back-img {
+    display: flex;
+    justify-items: flex-start;
+    width: 100%;
+    opacity: 0.33;
+}
+
+.back-img img {
+    height: 200px;
+}
+
 .clock-digital {
     display: flex;
     justify-content: center;
@@ -59,7 +70,7 @@ body {
     position: absolute;
     width: 4px;
     height: 200px;
-    background: #f5a9d0;
+    background: #f8d3e5;
     top: calc(50% - 200px);
     left: calc(50% - 2px);
     transform-origin: bottom;
@@ -69,7 +80,7 @@ body {
     position: absolute;
     width: 1px;
     height: 200px;
-    background: #f8d3e5;
+    background: #b1a7d1;
     width: 5px;
     top: calc(50% - 200px);
     left: calc(50% - 1px);
