@@ -1,164 +1,155 @@
-// ページが読み込まれたら処理を開始
 document.addEventListener('DOMContentLoaded', () => {
-    // 表示部分の要素を取得
-    const display = document.querySelector('.fream');
+    // メインディスプレイ要素と履歴表示用の要素を取得
+    const display = document.querySelector('.fream h1'); // 現在の入力値を表示
+    const historyDisplay = document.querySelector('.fream'); // 計算履歴を表示
 
-    // 現在の入力値を保持（初期値は'0'）
-    let currentInput = '0';
+    // 変数の初期化
+    let currentInput = '0'; // 現在の入力値
+    let memory = 0; // メモリに保存されている値
+    let operator = null; // 現在の演算子
+    let previousValue = null; // 直前の入力値
+    let isCalculating = false; // 計算中かどうかを示すフラグ
+    let history = ''; // 計算履歴を保持する
 
-    // メモリ機能の値を保持（初期値は0）
-    let memory = 0;
-
-    // 現在の演算子（+、-、×、÷など）を保持
-    let operator = null;
-
-    // 前回の値を保持（初期はnull）
-    let previousValue = null;
-
-    // 計算が進行中かどうかを管理（初期はfalse）
-    let isCalculating = false;
-
-    // ディスプレイに現在の入力値を表示する関数
+    // ディスプレイを更新するメソッド
     const updateDisplay = () => {
+        // 現在の入力値と履歴を表示要素に反映
         display.textContent = currentInput;
+        historyDisplay.innerHTML = `<h1>${history}</h1><h2>${currentInput}</h2>`;
     };
 
-    // 全てのデータをリセットする関数
+    // すべてリセットするメソッド
     const clearAll = () => {
-        currentInput = '0';
-        operator = null;
-        previousValue = null;
-        isCalculating = false;
+        currentInput = '0'; // 現在の入力値をリセット
+        operator = null; // 演算子をリセット
+        previousValue = null; // 直前の値をリセット
+        isCalculating = false; // 計算状態をリセット
+        history = ''; // 計算履歴をリセット
     };
 
-    // 現在の入力値だけをクリアする関数
+    // 現在の入力値だけをリセットするメソッド
     const clearEntry = () => {
         currentInput = '0';
     };
 
-    // 現在の入力値の符号を切り替える関数
+    // 現在の入力値の符号を反転するメソッド
     const toggleSign = () => {
         currentInput = (parseFloat(currentInput) * -1).toString();
     };
 
-    // 数字ボタンが押されたときの処理
+    // 数字ボタンを押したときの処理
     const handleNumber = (number) => {
-        if (isCalculating) {
-            // 新しい計算を開始する場合
+        if (isCalculating) { // 新しい計算が始まった場合
             currentInput = number;
             isCalculating = false;
-        } else if (currentInput === '0') {
-            // 最初の数字を入力する場合
+        } else if (currentInput === '0') { // 現在の入力値が0の場合
             currentInput = number;
-        } else {
-            // 既存の数字に追加する場合
+        } else { // 既存の入力値に数字を追加
             currentInput += number;
         }
     };
 
-    // 演算子（+、-、×、÷）が押されたときの処理
+    // 演算子ボタンを押したときの処理
     const handleOperator = (op) => {
-        if (previousValue === null) {
-            // 初回の演算子入力時
+        if (previousValue === null) { // 初回の演算子入力時
             previousValue = parseFloat(currentInput);
-        } else if (operator) {
-            // すでに演算が設定されている場合
+        } else if (operator) { // 既に演算が始まっている場合
             const result = calculate(previousValue, parseFloat(currentInput), operator);
-            previousValue = result; // 計算結果を保存
-            currentInput = result.toString(); // 表示を更新
+            previousValue = result; // 計算結果を次の計算に使用
+            history += ` ${currentInput} ${op}`; // 履歴を更新
+            currentInput = result.toString();
+        } else {
+            history += ` ${currentInput} ${op}`;
         }
-        operator = op; // 現在の演算子を設定
-        isCalculating = true; // 次の入力を新しい値として処理する
+        operator = op; // 新しい演算子を設定
+        isCalculating = true;
     };
 
-    // 2つの値を指定された演算子で計算する関数
+    // 演算を実行するメソッド
     const calculate = (a, b, op) => {
         switch (op) {
             case '+': return a + b;
             case '-': return a - b;
             case '×': return a * b;
             case '÷': return a / b;
-            default: return b; // 演算子が指定されていない場合、現在の値を返す
+            default: return b; // デフォルトではそのままの値を返す
         }
     };
 
-    // =ボタンが押されたときの処理
+    // =ボタンを押したときの処理
     const handleEquals = () => {
-        if (operator && previousValue !== null) {
-            currentInput = calculate(previousValue, parseFloat(currentInput), operator).toString();
+        if (operator && previousValue !== null) { // 計算可能な状態か確認
+            const result = calculate(previousValue, parseFloat(currentInput), operator);
+            history += ` ${currentInput} =`; // 履歴を更新
+            currentInput = result.toString(); // 計算結果を現在の入力値に設定
             operator = null; // 演算子をリセット
-            previousValue = null; // 前回の値をリセット
+            previousValue = null; // 直前の値をリセット
         }
     };
 
-    // メモリ操作（MC, MR, M+, M-）を処理する関数
+    // メモリ操作ボタンの処理
     const handleMemory = (action) => {
         switch (action) {
-            case 'MC': memory = 0; break; // メモリをクリア
-            case 'MR': currentInput = memory.toString(); break; // メモリの値を表示
-            case 'M+': memory += parseFloat(currentInput); break; // メモリに現在の値を加算
-            case 'M-': memory -= parseFloat(currentInput); break; // メモリから現在の値を減算
+            case 'MC': memory = 0; break; // メモリクリア
+            case 'MR': currentInput = memory.toString(); break; // メモリ読み出し
+            case 'M+': memory += parseFloat(currentInput); break; // メモリに加算
+            case 'M-': memory -= parseFloat(currentInput); break; // メモリから減算
         }
     };
 
-    // ボタンのクリックイベントを設定
+    // ボタンがクリックされたときの処理
     document.querySelectorAll('.b1').forEach(button => {
         button.addEventListener('click', (e) => {
-            const value = e.target.textContent; // クリックされたボタンの値を取得
+            const value = e.target.textContent;
 
-            if (!isNaN(value)) {
-                // 数字ボタンの場合
+            if (!isNaN(value)) { // 数字ボタンの場合
                 handleNumber(value);
-            } else if (value === 'C') {
-                clearEntry(); // 現在の入力をクリア
-            } else if (value === 'AC') {
-                clearAll(); // 全てをクリア
-            } else if (value === '+/-') {
-                toggleSign(); // 符号を切り替え
-            } else if (['+', '-', '×', '÷'].includes(value)) {
-                handleOperator(value); // 演算子を処理
-            } else if (value === '=') {
-                handleEquals(); // 結果を計算
-            } else if (['MC', 'MR', 'M+', 'M-'].includes(value)) {
-                handleMemory(value); // メモリ操作を処理
-            } else if (value === '.') {
+            } else if (value === 'C') { // 入力リセット
+                clearEntry();
+            } else if (value === 'AC') { // 全体リセット
+                clearAll();
+            } else if (value === '+/-') { // 符号反転
+                toggleSign();
+            } else if (['+', '-', '×', '÷'].includes(value)) { // 演算子
+                handleOperator(value);
+            } else if (value === '=') { // 計算実行
+                handleEquals();
+            } else if (['MC', 'MR', 'M+', 'M-'].includes(value)) { // メモリ操作
+                handleMemory(value);
+            } else if (value === '.') { // 小数点
                 if (!currentInput.includes('.')) {
-                    // 小数点がまだ入力されていない場合だけ追加
                     currentInput += '.';
                 }
             }
 
-            updateDisplay(); // ディスプレイを更新
+            updateDisplay(); // 表示を更新
         });
     });
 
-    // キーボード入力のイベントを設定
+    // キーボード入力の処理
     document.addEventListener('keydown', (e) => {
-        const key = e.key; // 押されたキーを取得
+        const key = e.key;
 
-        if (!isNaN(key)) {
-            // 数字キーの場合
+        if (!isNaN(key)) { // 数字キー
             handleNumber(key);
-        } else if (key === 'Backspace') {
-            // バックスペースキーで最後の文字を削除
+        } else if (key === 'Backspace') { // バックスペース
             currentInput = currentInput.slice(0, -1) || '0';
-        } else if (key === 'Escape') {
-            clearAll(); // 全てをクリア
-        } else if (key === 'Enter' || key === '=') {
-            handleEquals(); // 計算を実行
-        } else if (['+', '-', '*', '/'].includes(key)) {
-            // 演算子キーを処理
+        } else if (key === 'Escape') { // Escキーで全体リセット
+            clearAll();
+        } else if (key === 'Enter' || key === '=') { // Enterキーで計算実行
+            handleEquals();
+        } else if (['+', '-', '*', '/'].includes(key)) { // 演算子キー
             const opMap = { '*': '×', '/': '÷' };
             handleOperator(opMap[key] || key);
-        } else if (key === '.') {
+        } else if (key === '.') { // 小数点キー
             if (!currentInput.includes('.')) {
                 currentInput += '.';
             }
         }
 
-        updateDisplay(); // ディスプレイを更新
+        updateDisplay(); // 表示を更新
     });
 
-    // 初期表示を更新
+    // 初期状態でディスプレイを更新
     updateDisplay();
 });
