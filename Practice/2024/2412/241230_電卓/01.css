@@ -9,56 +9,59 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     background-color: skyblue;
-    padding: 5%;
+    padding: 1.5%;
     color: #52c3f1;
 }
 
 .frm {
+    height: 209.78px;
     display: grid;
-    grid-template-columns: 1.5fr 4fr;
+    grid-template-columns: 1fr 3fr;
     background-color: rgb(196, 233, 248);
-    justify-items: center;
     align-items: center;
+    margin: auto; /* 中央寄せ */
 }
 
 .frm img {
-    width: 600px;
-    /* height: 500px; */
+    width: 200px; /* ビューポート幅に基づいて調整 */
 }
-
-
 
 .fream {
     width: 100%;
-    height: 500px;
+    height: 8vh; /* 相対的高さ */
     background-color: rgb(196, 233, 248);
     border-radius: 10px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 300px; /* サイズを調整 */
-    font-family: '7 Segment', sans-serif;
-    margin-right: 5%;
+    font-size: 60px; /* フレームに基づいた文字サイズ */
+    margin-right: 10%;
 }
+
 
 .btn {
     width: 100%;
-    height: 500px;
+    height: 50px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .b1 {
-    /* padding: 20px; */
-    width: 100%;
-    height: 100%;
-    font-size: 100px; /* フォントサイズ調整 */
+    font-size: 2.5vh; /* 高さ基準で文字サイズ設定 */
     text-align: center;
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
+    height: 7vh; /* ボタンの高さ */
 }
+
+.btn {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%; /* フレーム幅に応じて伸縮 */
+}
+
 
 .b1:hover {
     background-color: #d6d6d6;
@@ -87,20 +90,26 @@ body {
 
 /* モバイル対応 */
 @media (max-width: 768px) {
-    .fream {
-        height: auto;
+    .frm {
+        grid-template-columns: 1fr;
+        max-width: 100%;
     }
 
-    .b1 {
-        font-size: 1.5rem;
-        padding: 10px;
+    .fream {
+        height: auto;
+        font-size: 2rem; /* 小さめフォント */
     }
 
     .btn {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .b1 {
+        font-size: 1.5rem;
+    }
 }
 
+
 .btn5 img {
-    width: 250px;
+    width: 100px;
 }
