@@ -7,17 +7,44 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
-.back-img {
-    display: flex;
-    justify-items: flex-start;
+.background-wrapper {
+    position: absolute;
     width: 100%;
+    height: 100%;
+    z-index: -1; /* 時計などの他の要素の下に配置 */
     opacity: 0.33;
 }
 
-.back-img img {
-    height: 200px;
+.back-img {
+    position: absolute;
+    background-image: url("https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/vendors/bgimages/bg-kuromi2.png");
+    background-size: cover;
+    width: 150px; /* 任意のサイズに変更 */
+    height: 150px; /* 任意のサイズに変更 */
+    opacity: 0.33;
+    transform-origin: center;
+    animation: sway 5s infinite alternate;
+}
+
+@keyframes sway {
+    0% {
+        transform: translate(0, 0) rotate(5deg);
+    }
+    25% {
+        transform: translate(200px, -100px) rotate(-10deg);
+    }
+    50% {
+        transform: translate(-150px, 150px) rotate(5deg);
+    }
+    75% {
+        transform: translate(100px, 200px) rotate(-5deg);
+    }
+    100% {
+        transform: translate(-200px, -50px) rotate(10deg);
+    }
 }
 
 .clock-digital {
@@ -48,7 +75,7 @@ body {
 
 .center-image {
     position: absolute;
-    width: 120px; /* 画像のサイズ */
+    width: 200px; /* 画像のサイズ */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

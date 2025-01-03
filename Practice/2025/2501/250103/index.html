@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あみだくじ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>あみだくじ</h1>
+    <div>
+        <label for="participants">参加者（カンマ区切り）:</label><br>
+        <input type="text" id="participants" placeholder="例: Aさん, Bさん, Cさん">
+    </div>
+    <div>
+        <label for="results">結果（カンマ区切り）:</label><br>
+        <input type="text" id="results" placeholder="例: プレゼント1, プレゼント2, プレゼント3">
+    </div>
+    <button onclick="startAmida()">あみだくじを開始</button>
+
+    <div class="results" id="output"></div>
+
+    <script>
+        function startAmida() {
+            // 入力値を取得
+            const participantsInput = document.getElementById('participants').value.trim();
+            const resultsInput = document.getElementById('results').value.trim();
+
+            // 参加者と結果をカンマで分割
+            const participants = participantsInput.split(',').map(p => p.trim());
+            const results = resultsInput.split(',').map(r => r.trim());
+
+            // 入力チェック
+            if (participants.length === 0 || results.length === 0) {
+                alert("参加者と結果を入力してください。");
+                return;
+            }
+            if (participants.length !== results.length) {
+                alert("参加者と結果の数が一致していません。");
+                return;
+            }
+
+            // 結果をランダムにシャッフル
+            const shuffledResults = [...results];
+            for (let i = shuffledResults.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledResults[i], shuffledResults[j]] = [shuffledResults[j], shuffledResults[i]];
+            }
+
+            // 結果を表示
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = "<h2>結果</h2>";
+            participants.forEach((participant, index) => {
+                outputDiv.innerHTML += `<p>${participant} → ${shuffledResults[index]}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
