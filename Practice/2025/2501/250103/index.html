@@ -3,71 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>あみだくじ</title>
+    <title>アニメーション付きあみだくじ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
         }
-        input, button {
-            margin: 5px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        .results {
-            margin-top: 20px;
+        canvas {
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>あみだくじ</h1>
-    <div>
-        <label for="participants">参加者（カンマ区切り）:</label><br>
-        <input type="text" id="participants" placeholder="例: Aさん, Bさん, Cさん">
-    </div>
-    <div>
-        <label for="results">結果（カンマ区切り）:</label><br>
-        <input type="text" id="results" placeholder="例: プレゼント1, プレゼント2, プレゼント3">
-    </div>
+    <h1>アニメーション付きあみだくじ</h1>
+    <canvas id="amidaCanvas" width="600" height="400"></canvas>
     <button onclick="startAmida()">あみだくじを開始</button>
 
-    <div class="results" id="output"></div>
-
     <script>
-        function startAmida() {
-            // 入力値を取得
-            const participantsInput = document.getElementById('participants').value.trim();
-            const resultsInput = document.getElementById('results').value.trim();
+        const canvas = document.getElementById("amidaCanvas");
+        const ctx = canvas.getContext("2d");
 
-            // 参加者と結果をカンマで分割
-            const participants = participantsInput.split(',').map(p => p.trim());
-            const results = resultsInput.split(',').map(r => r.trim());
+        const participants = ["Aさん", "Bさん", "Cさん"];
+        const results = ["プレゼント1", "プレゼント2", "プレゼント3"];
+        const lines = [];
+        const startPositions = [];
+        const endPositions = [];
 
-            // 入力チェック
-            if (participants.length === 0 || results.length === 0) {
-                alert("参加者と結果を入力してください。");
-                return;
-            }
-            if (participants.length !== results.length) {
-                alert("参加者と結果の数が一致していません。");
-                return;
-            }
+        // あみだくじの線を生成
+        function generateAmida() {
+            const columnWidth = canvas.width / (participants.length + 1);
 
-            // 結果をランダムにシャッフル
-            const shuffledResults = [...results];
-            for (let i = shuffledResults.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffledResults[i], shuffledResults[j]] = [shuffledResults[j], shuffledResults[i]];
+            // 縦線の始点と終点
+            for (let i = 1; i <= participants.length; i++) {
+                const x = columnWidth * i;
+                startPositions.push(x);
+                endPositions.push(x);
+                lines.push({ x, y1: 50, y2: canvas.height - 50 });
             }
 
-            // 結果を表示
-            const outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = "<h2>結果</h2>";
-            participants.forEach((participant, index) => {
-                outputDiv.innerHTML += `<p>${participant} → ${shuffledResults[index]}</p>`;
-            });
+            // ランダムな横線
+            for (let i = 1; i <= 10; i++) {
+                const col = Math.floor(Math.random() * (participants.length - 1));
+                const y = Math.random() * (canvas.height - 100) + 50;
+                const x1 = startPositions[col];
+                const x2 = startPositions[col + 1];
+                lines.push({ x1, x2, y });
+            }
         }
+
+        // あみだくじを描画
+        function drawAmida() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = "#000";
+            ctx.lineWidth = 2;
+
+            // 縦線を描画
+            for (const line of lines) {
+                if (line.x) {
+                    ctx.beginPath();
+                    ctx.moveTo(line.x, line.y1);
+                    ctx.lineTo(line.x, line.y2);
+                    ctx.stroke();
+                }
+            }
+
+            // 横線を描画
+            for (const line of lines) {
+                if (line.x1) {
+                    ctx.beginPath();
+                    ctx.moveTo(line.x1, line.y);
+                    ctx.lineTo(line.x2, line.y);
+                    ctx.stroke();
+                }
+            }
+
+            // 参加者ラベル
+            for (let i = 0; i < participants.length; i++) {
+                const x = startPositions[i];
+                ctx.fillText(participants[i], x - 10, 30);
+            }
+
+            // 結果ラベル
+            for (let i = 0; i < results.length; i++) {
+                const x = endPositions[i];
+                ctx.fillText(results[i], x - 10, canvas.height - 20);
+            }
+        }
+
+        // あみだくじのアニメーション
+        function startAmida() {
+            let currentX = startPositions[0];
+            let currentY = 50;
+            let resultIndex = 0;
+
+            const interval = setInterval(() => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawAmida();
+
+                // 移動中のボールを描画
+                ctx.beginPath();
+                ctx.arc(currentX, currentY, 8, 0, Math.PI * 2);
+                ctx.fillStyle = "red";
+                ctx.fill();
+
+                // 移動ロジック
+                if (currentY >= canvas.height - 50) {
+                    clearInterval(interval);
+                    alert(`${participants[resultIndex]} → ${results[resultIndex]}`);
+                } else {
+                    // 横線に当たると移動
+                    for (const line of lines) {
+                        if (line.y && Math.abs(line.y - currentY) < 5) {
+                            if (currentX === line.x1) {
+                                currentX = line.x2;
+                                break;
+                            } else if (currentX === line.x2) {
+                                currentX = line.x1;
+                                break;
+                            }
+                        }
+                    }
+                    currentY += 5;
+                }
+            }, 50);
+        }
+
+        generateAmida();
+        drawAmida();
     </script>
 </body>
 </html>
