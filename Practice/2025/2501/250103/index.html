@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アニメーション付きあみだくじ</title>
+    <title>設定可能なアニメーション付きあみだくじ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,25 +15,57 @@
             margin: 20px auto;
             display: block;
         }
+        form {
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
-    <h1>アニメーション付きあみだくじ</h1>
+    <h1>設定可能なアニメーション付きあみだくじ</h1>
+    <form id="settingsForm">
+        <label for="participantsInput">参加者（カンマ区切り）:</label>
+        <input type="text" id="participantsInput" placeholder="例: Aさん,Bさん,Cさん" required>
+        <br><br>
+        <label for="resultsInput">結果（カンマ区切り）:</label>
+        <input type="text" id="resultsInput" placeholder="例: プレゼント1,プレゼント2,プレゼント3" required>
+        <br><br>
+        <button type="submit">あみだくじを生成</button>
+    </form>
     <canvas id="amidaCanvas" width="600" height="400"></canvas>
     <button onclick="startAmida()">あみだくじを開始</button>
 
     <script>
         const canvas = document.getElementById("amidaCanvas");
         const ctx = canvas.getContext("2d");
+        let participants = [];
+        let results = [];
+        let lines = [];
+        let startPositions = [];
+        let endPositions = [];
 
-        const participants = ["Aさん", "Bさん", "Cさん"];
-        const results = ["プレゼント1", "プレゼント2", "プレゼント3"];
-        const lines = [];
-        const startPositions = [];
-        const endPositions = [];
+        // フォームの送信を処理
+        document.getElementById("settingsForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const participantsInput = document.getElementById("participantsInput").value;
+            const resultsInput = document.getElementById("resultsInput").value;
+
+            participants = participantsInput.split(",").map((p) => p.trim());
+            results = resultsInput.split(",").map((r) => r.trim());
+
+            if (participants.length !== results.length) {
+                alert("参加者と結果の数が一致する必要があります。");
+                return;
+            }
+
+            generateAmida();
+            drawAmida();
+        });
 
         // あみだくじの線を生成
         function generateAmida() {
+            lines = [];
+            startPositions = [];
+            endPositions = [];
             const columnWidth = canvas.width / (participants.length + 1);
 
             // 縦線の始点と終点
@@ -95,6 +127,11 @@
 
         // あみだくじのアニメーション
         function startAmida() {
+            if (participants.length === 0 || results.length === 0) {
+                alert("まず参加者と結果を設定してください。");
+                return;
+            }
+
             let currentX = startPositions[0];
             let currentY = 50;
             let resultIndex = 0;
@@ -130,9 +167,6 @@
                 }
             }, 50);
         }
-
-        generateAmida();
-        drawAmida();
     </script>
 </body>
 </html>
