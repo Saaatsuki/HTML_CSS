@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天気確認</title>
+</head>
+<body>
+    <button>天気確認</button>
+    <div class="log"></div>
+
+    <script>
+        const btn = document.querySelector("button");
+
+        btn.addEventListener("click", (event) => {
+            const isYes = confirm("天気は晴れていますか？");
+            if (isYes) {
+                document.querySelector(".log").innerHTML = "晴れています！";
+            } else {
+                document.querySelector(".log").innerHTML = "晴れていません。";
+            }
+        });
+    </script>
+</body>
+</html>
