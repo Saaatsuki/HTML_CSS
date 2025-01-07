@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const text = prompt("どうですか？🌤");
+        console.log(text); // コンソールに入力された内容を表示
+        if (text !== null) {
+            document.body.innerHTML = `<h1>あなたの入力: ${text}</h1>`; // ユーザーの入力内容をページに表示
+        }
+    </script>
+</body>
+</html>
