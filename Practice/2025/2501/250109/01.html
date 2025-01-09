@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西暦</title>
+</head>
+<body>
+    <h1 id="log"></h1>
+    <script>
+        const date = new Date(); // Dateオブジェクトを生成
+        const year = date.getFullYear(); // 現在の西暦年を取得
+
+        document.querySelector(`#log`).innerHTML = `今年は西暦${year}年です。`; // テンプレートリテラルで表示
+    </script>
+</body>
+</html>
