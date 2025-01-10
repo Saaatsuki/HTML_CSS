@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="log"></h1>
+    <script>
+        const date = new Date(); // 'new Date()' と書く
+        const month = date.getMonth() + 1; // 'getMonth()' と書く
+        const day = date.getDate();
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        const seconds = date.getSeconds();
+        
+        // 1桁の数字の場合、0を追加して2桁にする
+        const formattedMin = min < 10 ? '0' + min : min;
+        const formattedSec = seconds < 10 ? '0' + seconds : seconds;
+        
+        const label = `${month}月 ${day}日\n${hour}:${formattedMin}:${formattedSec}`;
+        document.querySelector(`#log`).innerHTML = label; 
+    </script>
+</body>
+</html>
