@@ -14,7 +14,10 @@
         let hour = date.getHours(); // 時間を12時間表記に変更するためにletで宣言
         const min = date.getMinutes();
         const seconds = date.getSeconds();
+        const yobi_idx = date.getDay();
 
+        const yobi_li = [`日`,`月`,`火`,`水`,`木`,`金`,`土`]; 
+        const yobi = yobi_li[yobi_idx];
         // 午前・午後を判定
         let go = "午前";
         if (hour >= 12) {
@@ -29,7 +32,7 @@
         const formattedSec = seconds < 10 ? '0' + seconds : seconds;
 
         // 結果を文字列として作成
-        const res = `${month}月 ${day}日 ${go} ${hour}時${formattedMin}分${formattedSec}秒`;
+        const res = `${month}月 ${day}日 ${yobi}曜日${go} ${hour}時${formattedMin}分${formattedSec}秒`;
         document.querySelector(`#log`).innerHTML = res;
     </script>
 </body>
