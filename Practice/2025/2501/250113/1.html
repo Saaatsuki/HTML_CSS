@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="log"></h1>
+    <script>
+        const oldTime = Date.now();
+
+        setInterval(() => {
+            const currentTime = Date.now();
+            const diff = currentTime - oldTime;
+            const sec = Math.floor(diff / 1000);
+            document.querySelector(`#log`).innerHTML = `${sec}秒経過`
+        },1000);
+    </script>
+</body>
+</html>
