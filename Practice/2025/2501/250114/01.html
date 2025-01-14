@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウントダウンタイマー</title>
+</head>
+<body>
+    <h1 id="log">残り10秒</h1> <!-- 残り時間を表示するための要素 -->
+    <script>
+        const totalTime = 10000; // 10000ms = 10秒
+        const oldTime = Date.now(); // 現在のタイムスタンプを取得
+
+        const timerId = setInterval(() => {
+            const currentTime = Date.now();
+            const diff = currentTime - oldTime; // 経過時間を計算
+            const remainMSec = totalTime - diff; // 残り時間（ミリ秒）
+            const remainSec = Math.ceil(remainMSec / 1000); // 残り時間（秒）
+
+            let label = `残り${remainSec}秒`;
+
+            if (remainMSec <= 0) {
+                clearInterval(timerId); // タイマーを停止
+                label = `終了`;
+            }
+
+            document.querySelector(`#log`).innerHTML = label; // HTML要素を更新
+        }, 100); // 0.1秒間隔で更新
+    </script>
+</body>
+</html>
