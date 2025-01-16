@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/earlyaccess/nicomoji.css');
+
+/* すべての要素にホバーインジケーターを無効化 */
+* {
+    outline: none;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+
+
+body {
+    font-family: "Nico Moji", sans-serif;
+    background-color: #231816;
+    color: white;
+}
+
+
+
+img {
+    /* トリミング */
+    object-fit: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h3 {
+    font-size: 2em;
+}
+
+header .header-right {
+    display: flex;
+}
+
+header h3 {
+    font-size: 40px;
+}
+
+header .header-right h4 {
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.main-image img {
+    width: 100%;
+    height: 500px;
+}
+
+main .top-image {
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+
+}
+
+main .top-image img {
+    width: 13%;
+    animation: glow 2s infinite;
+    filter:
+    drop-shadow(0 0 10px rgba(255, 255, 0, 0.8)), 
+    drop-shadow(0 0 20px rgba(255, 255, 0, 0.6)), 
+    drop-shadow(0 0 30px rgba(255, 255, 0, 0.4));
+}
+
+@keyframes glow {
+    0% {
+      filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8))
+              drop-shadow(0 0 30px rgba(255, 255, 0, 0.6));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(255, 255, 0, 1))
+              drop-shadow(0 0 40px rgba(255, 255, 0, 0.8));
+    }
+    100% {
+      filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8))
+              drop-shadow(0 0 30px rgba(255, 255, 0, 0.6));
+    }
+  }
+
+main .top-message {
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+main .image-set-1 {
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+main .image-set-1 img {
+    width: 300px;
+    height: 300px;
+    opacity: 0.5;
+}
+
+main .image-set-1 .img1 {
+    margin-right: 1%;
+}
+
+main .image-set-1 .img2 {
+    margin-left: 1%;
+}
+
+.image1 {
+    position: relative; 
+}
+
+.overlay {
+    position: absolute; /* 親要素に対して絶対位置 */
+    top: 50%; /* 親要素の中央に配置 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 完全に中央揃え */
+    background-color: rgba(0, 0, 0, 0.75); /* 透過した黒背景 */
+    padding: 20px;
+    color: white; /* 文字色を白に */
+    text-align: center;
+    border-radius: 20px;
+    width: 40%;
+    height: 25%;
+    align-content: center;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 30px;
+}
+
+main .family {
+    margin-top: 5%;
+    background-color: white;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    color: white;
+    overflow-x: scroll; /* 横スクロールを有効にする */
+    display: flex; /* 画像を横並びに */
+    align-items: center;
+
+}
+
+main .family img {
+    height: 300px;
+    margin-right: 10px; /* 画像間の間隔 */
+}

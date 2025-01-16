@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batsumaru</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nicomoji.css">
+    <link rel="stylesheet" href="01.css">
+    <!-- FontAwesomeのCDNを修正 -->
+    <script src="https://kit.fontawesome.com/5d59a453d5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h3>バッドばつまる</h3>
+        </div>
+        <div class="header-right">
+            <h4>Profile</h4>
+            <h4>family</h4>
+            <h4>friends</h4>
+            <h4><i class="fa-brands fa-instagram fa-lg"></i></h4>
+        </div>
+    </header>
+    <div class="main-image">
+        <img src="gallery-badtzmaru4.jpg"/>
+    </div>
+    <main>
+        <div class="top-image">
+            <img src="ba1.png"/>
+        </div>
+        <div class="top-message">
+            <h3>いたずらずきで、あまのじゃくなペンギンのおとこのコ。<br>スキなたべモノは、ギンザのコーキューおスシとポリパリラーメン。
+                しょうらいのユメは、シャチョーになること。<br>ひねくれモノにみえるけど ホントーはイイヤツ？</h3>
+        </div>
+        <div class="image-set-1">
+            <div class="image1 img1">
+                <img src="ba2.jpg" />
+                <div class="overlay">
+                    <p>グッド<br>はなまる</p>
+                </div>
+            </div>
+            <div class="image1 img2">
+                <img src="ba3.jpg" />
+                <div class="overlay">
+                    <p>バッド<br>ばつまる</p>
+                </div>
+            </div>
+        </div>
+        <div id="family" class="family">
+            <img src="ba5.png" />
+            <img src="papa.png" />
+            <img src="mama.png" />
+            <img src="imo.png" />
+            <img src="oto.png" />
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+    <!-- JavaScriptはbodyタグの閉じる直前に配置 -->
+    <script>
+        const family = document.querySelector("#family");
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        family.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX - family.offsetLeft;
+            scrollLeft = family.scrollLeft;
+        });
+
+        family.addEventListener("mouseleave", () => {
+            isDown = false;
+        });
+
+        family.addEventListener("mouseup", () => {
+            isDown = false;
+        });
+
+        family.addEventListener("mousemove", (e) => {
+            if (!isDown) return; // マウスが押されていない時は動かさない
+            e.preventDefault();
+            const x = e.pageX - family.offsetLeft;
+            const walk = (x - startX) * 3; // スクロールの速度調整
+            family.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
