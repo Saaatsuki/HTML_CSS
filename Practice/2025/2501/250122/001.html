@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テーブルの例</title>
+    <style>
+        table {
+            border-collapse: collapse; /* 枠線を一本化 */
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc; /* 枠線 */
+            padding: 8px; /* 内側余白 */
+            text-align: left; /* 左揃え */
+        }
+        th {
+            background-color: #f2f2f2; /* ヘッダー背景色 */
+            text-align: center; /* 中央揃え */
+        }
+    </style>
+</head>
+<body>
+    <h1>フルーツの価格表</h1>
+    <table>
+        <!-- 見出し行 -->
+        <tr>
+            <th>商品名</th>
+            <th>価格</th>
+            <th>在庫数</th>
+        </tr>
+        <!-- データ行 -->
+        <tr>
+            <td>りんご</td>
+            <td>100円</td>
+            <td>20個</td>
+        </tr>
+        <tr>
+            <td>みかん</td>
+            <td>50円</td>
+            <td>30個</td>
+        </tr>
+        <tr>
+            <td>ぶどう</td>
+            <td>150円</td>
+            <td>15個</td>
+        </tr>
+    </table>
+</body>
+</html>
