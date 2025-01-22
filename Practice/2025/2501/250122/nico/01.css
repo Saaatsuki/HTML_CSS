@@ -1,0 +1,37 @@
+
+/* 全体の基本設定 */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    text-align: center;
+}
+
+/* 時計のデザイン */
+#clock {
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    animation: glow 1.5s infinite alternate;
+}
+
+/* アニメーション: 時計が光るように */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+    }
+    100% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffff00, 0 0 15px #eaff00, 0 0 20px #a3a121, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+    }
+}
+
+/* ログインフォームや挨拶の隠れた要素にスタイル（念のため） */
+.hidden {
+    display: none;
+}
