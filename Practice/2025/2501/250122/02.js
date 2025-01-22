@@ -18,7 +18,7 @@ function loop() {
     char.style.top = `${targetY}px`;
 
     // 角度を1度ずつ増やす
-    degree += 1;
+    degree += 3;
 
     // 次のフレームで再び loop を呼び出す
     requestAnimationFrame(loop);
