@@ -60,6 +60,7 @@
 // const randomNum = Math.random * 10;
 const fruitLi = ["りんご", "みかん", "いちご", "れもん"];
 // Math.random() で0以上1未満のランダムな値を生成し、3を掛けて0, 1, 2のいずれかを選択
+// Math.floorは少数点を切り捨てる役割
 const myFruit = fruitLi[Math.floor(Math.random() * 4)]; // インデックスは0, 1, 2, 3のいずれか
 
 switch (myFruit) {

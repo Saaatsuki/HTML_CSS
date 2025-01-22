@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    overflow: hidden; /* 画面外のスクロールを防ぐ */
+    background-color: #e7a2d6;
+}
+
+.char {
+    position: absolute; /* 絶対位置を指定可能にする */
+    width: 100px; /* キャラクターの幅 */
+    height: 100px; /* キャラクターの高さ */
+    transform: translate(-50%, -50%); /* 中心を基準に動かす */
+}

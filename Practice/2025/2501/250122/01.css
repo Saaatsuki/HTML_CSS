@@ -1,0 +1,16 @@
+.rectangle {
+    width: 100%; /* 幅を画面全体に設定 */
+    height: 300px; /* 高さを300pxに設定 */
+    --start: hsl(0, 100%, 50%);
+    --end: hsl(322, 100%, 50%);
+    background-image: linear-gradient(-135deg, var(--start), var(--end)); /* グラデーションを適用 */
+    border: 5px solid #ffff79; /* 矩形の枠線を追加 */
+    margin-top: 20px; /* 上に余白を追加 */
+}
+
+button {
+    background-color: #ffff79;
+    border: 0;
+    color: skyblue;
+    width: 100%;
+}
