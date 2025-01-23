@@ -13,8 +13,8 @@ function onGeoOk(position) {
       weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
     });
 }
-function onGeoError() {
-  alert("Can't find you. No weather for you.");
-}
+// function onGeoError() {
+//   alert("Can't find you. No weather for you.");
+// }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);

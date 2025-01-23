@@ -10,6 +10,7 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: #fff;
+    
   }
   
   /* 時間表示 */
@@ -17,6 +18,7 @@ body {
     font-size: 5rem;
     font-weight: bold;
     margin-bottom: 20px;
+    -webkit-text-stroke: 2px #ef92bb; /* 外枠の色と太さ */
   }
   
   /* ログインフォーム */
@@ -30,9 +32,14 @@ body {
   #login-form input[type="text"] {
     font-size: 1rem;
     padding: 10px;
-    border: none;
+    border: 2px solid #ef92bb ;
     border-radius: 5px;
     width: 250px;
+    color: #ef92bb;
+  }
+
+  input placeholder {
+    color: #ec6d81;
   }
   
   #login-form input[type="submit"] {
@@ -41,14 +48,14 @@ body {
     width: 100px;
     border: none;
     border-radius: 5px;
-    background: #4caf50;
+    background: #ec6d81;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   #login-form input[type="submit"]:hover {
-    background: #45a049;
+    background: #fce8eb;
   }
   
   /* 挨拶メッセージ */
@@ -66,9 +73,10 @@ body {
   #todo-form input[type="text"] {
     font-size: 1rem;
     padding: 10px;
-    border: none;
+    border: 2px solid #ef92bb ;
     border-radius: 5px;
     width: 300px;
+    
   }
   
   /* To Do リスト */
@@ -95,6 +103,8 @@ body {
     margin-top: 40px;
     font-size: 1.2rem;
     text-align: center;
+    -webkit-text-stroke: 0.5px #ef92bb; /* 外枠の色と太さ */
+    
   }
   
   #quote span:first-child {
