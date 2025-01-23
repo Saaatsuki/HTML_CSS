@@ -1,0 +1,58 @@
+/* 全体のスタイル */
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #f7f8fa, #e2e8f0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* コンテナのスタイル */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* 横並びでカードが並びきらない場合に折り返す */
+    justify-content: center;
+    gap: 20px; /* カード間の隙間 */
+    padding: 20px;
+}
+
+/* カードデザイン */
+.card {
+    background: #ffffff;
+    border-radius: 15px; /* 角丸 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影 */
+    width: 250px; /* 固定幅 */
+    padding: 20px;
+    text-align: center; /* 中央揃え */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* カードホバー時のアニメーション */
+.card:hover {
+    transform: scale(1.05); /* 拡大 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+/* タイトルのスタイル */
+.card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+/* テキストのスタイル */
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+
+/* メディアクエリ（スマホ対応） */
+@media (max-width: 768px) {
+    .card {
+        width: 90%; /* スマホでは幅を調整 */
+    }
+}
