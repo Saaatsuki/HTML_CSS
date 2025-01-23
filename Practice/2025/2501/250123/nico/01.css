@@ -1,0 +1,117 @@
+/* 全体の背景とフォント設定 */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+  }
+  
+  /* 時間表示 */
+  #clock {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* ログインフォーム */
+  #login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #login-form input[type="text"] {
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+  }
+  
+  #login-form input[type="submit"] {
+    font-size: 1rem;
+    padding: 10px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #login-form input[type="submit"]:hover {
+    background: #45a049;
+  }
+  
+  /* 挨拶メッセージ */
+  #greeting {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* To Do フォーム */
+  #todo-form {
+    margin-top: 20px;
+  }
+  
+  #todo-form input[type="text"] {
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+  }
+  
+  /* To Do リスト */
+  #todo-list {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+    width: 300px;
+  }
+  
+  #todo-list li {
+    font-size: 1rem;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* 名言のスタイル */
+  #quote {
+    margin-top: 40px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  #quote span:first-child {
+    font-style: italic;
+  }
+  
+  #quote span:last-child {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: lighter;
+  }
+  
+  /* 天気のスタイル */
+  #weather {
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
