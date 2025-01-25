@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="log"></h1> <!-- 結果を表示するためのh1タグ -->
+    <script>
+        let sanrio = {
+            list: {
+                animal: {
+                    cat: [
+                        {name: "HelloKitty", birth: "1101", rank: 5 ,likeMusic() { return `${this.name} loves music!`; }},
+                        {name: "CharmyKitty",birth: "1031", rank: 29 ,likeKitty() { return `${this.name} loves kittens!`; }},
+                        {name: "HelloMimy",birth: "1101", rank: 30 ,likeRebon() { return `${this.name} loves Rebon!`; }}
+                    ],
+                    like() {
+                        console.log("Cats love animals!");
+                    }
+                },
+                
+                fairy: {
+                    food: [
+                        {name: "Cogimyun", birth: "0507", rank: 12 ,likeOnigiri() { return `${this.name} loves onigiri!`; }},
+                        {name: "PomPomPurin",birth: "0416", rank: 4 ,likePudding() { return `${this.name} loves pudding!`; }},
+                    ],
+                    makeFood() {
+                        console.log("Fairies love making food!");
+                    }
+                },
+            },
+            plan() {
+                console.log("Planning new Sanrio project...");
+            },
+            uploadVideo() {
+                console.log("Uploading Sanrio video...");
+            }
+        };
+
+        // likeMusic()メソッドを呼び出し、その結果をresに格納
+        let res = sanrio.list.animal.cat[0].likeMusic(); 
+        
+        // resの結果をh1タグに表示
+        document.querySelector("#log").innerHTML = res; 
+    </script>
+</body>
+</html>
