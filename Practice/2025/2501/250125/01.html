@@ -39,11 +39,13 @@
             }
         };
 
-        // likeMusic()メソッドを呼び出し、その結果をresに格納
-        let res = sanrio.list.animal.cat[0].likeMusic(); 
+        // likeMusic()メソッドを呼び出し、その結果をres1に格納
+        let res1 = sanrio.list.animal.cat[0].likeMusic(); 
+        // plan()メソッドを呼び出し、その結果をres2に格納
+        let res2 = sanrio.list.plan();
         
-        // resの結果をh1タグに表示
-        document.querySelector("#log").innerHTML = res; 
+        // res1とres2の結果を連結してh1タグに表示
+        document.querySelector("#log").innerHTML = res1 + "<br>" + res2; 
     </script>
 </body>
 </html>
