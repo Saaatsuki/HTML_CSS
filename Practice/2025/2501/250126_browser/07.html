@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Work</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        .log {
+            font-size: 2em;
+            color: #333;
+        }
+        .online {
+            color: green;
+        }
+        .offline {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="log"></h1>
+
+    <script>
+        // ネットワーク状態をチェックする関数
+        function updateNetworkStatus() {
+            const isOnline = navigator.onLine;
+            const logElement = document.querySelector('.log');
+
+            if (isOnline) {
+                logElement.textContent = 'オンラインです🎶(*´ω｀*)';
+                logElement.classList.add('online');
+                logElement.classList.remove('offline');
+            } else {
+                logElement.textContent = 'オフラインです( ；´Д｀)';
+                logElement.classList.add('offline');
+                logElement.classList.remove('online');
+            }
+        }
+
+        // 初回実行
+        updateNetworkStatus();
+
+        // ネットワーク状態の変化を監視
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+    </script>
+</body>
+</html>

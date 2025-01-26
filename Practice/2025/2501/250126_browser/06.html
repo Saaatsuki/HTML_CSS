@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen</title>
+    <style>
+        /* スタイリッシュなボタンのデザイン */
+        #btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        #btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        #btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <!-- ボタンを追加 -->
+    <button id="btn">Go Full Screen</button>
+
+    <script>
+        // フルスクリーンボタンを取得
+        const btn = document.querySelector('#btn');
+        
+        // ボタンクリック時にフルスクリーンにする処理
+        btn.addEventListener('click', () => {
+            // 全画面表示にする関数を呼び出す
+            myRequestFullScreen(document.body);
+        });
+
+        /**
+         * 全画面表示を実現する関数
+         * @param {HTMLElement} element フルスクリーンにしたい要素
+         */
+        function myRequestFullScreen(element) {
+            if (element.requestFullscreen) {
+                // モダンブラウザ用
+                element.requestFullscreen();
+            } else if (element.webkitRequestFullscreen) {
+                // Safari用
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                // Internet Explorer用
+                element.msRequestFullscreen();
+            } else {
+                // フルスクリーンに対応していない場合
+                alert("このブラウザはフルスクリーンをサポートしていません。");
+            }
+        }
+    </script>
+</body>
+</html>
