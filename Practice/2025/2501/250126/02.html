@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- ページの文字エンコーディングをUTF-8に設定。これにより多言語対応が可能。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- モバイルデバイスで適切に表示するための設定。 -->
+    <title>Document</title> <!-- ページタイトルを設定。このタイトルはブラウザタブに表示される。 -->
+</head>
+<body>
+    <script>
+        const userChoice = confirm(`このページに移動しますか？`);
+
+        if (userChoice) {
+            // 現在のページのURLをコンソールに表示する
+            console.log(location.href);
+
+            // 現在のページを「https://www.sanrio.co.jp/」にリダイレクトする
+            location.href = `https://www.sanrio.co.jp/`;
+        } else {
+            alert(`キャンセル`);
+        }
+        
+
+    </script>
+</body>
+</html>
