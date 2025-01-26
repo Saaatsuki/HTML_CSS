@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch</title>
+</head>
+<body>
+    <script>
+        // デバイスがタッチ操作をサポートしているかを判定する
+        const isSupported = !!(
+            // 【1】`ontouchstart` というイベントが window（ブラウザのウィンドウオブジェクト）に存在するかを確認
+            // → 存在すれば、スマホやタブレットなどのタッチデバイスの可能性が高い
+            `ontouchstart` in window ||  
+
+            // 【2】ポインターイベントとタッチポイントを確認する条件
+            (
+                // `navigator.pointerEnabled` が有効か（ポインターイベントが使えるか）
+                navigator.pointerEnabled && 
+                // `navigator.maxTouchPoints` が0より大きい（同時に触れる指の数がある程度ある）
+                navigator.maxTouchPoints > 0
+            )
+        );
+
+        // 結果を表示
+        console.log(isSupported ? "タッチ操作が可能なデバイスです" : "タッチ操作ができません");
+    </script>
+</body>
+</html>
