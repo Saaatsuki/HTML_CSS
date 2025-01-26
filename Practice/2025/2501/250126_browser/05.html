@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash_Anker</title>
+</head>
+<body>
+    <div class="log">現在のアンカーはありません。</div>
+    <script>
+        // 初回のアンカー表示を設定
+        handleHashChange();
+
+        // hashchangeイベントを監視
+        window.addEventListener('hashchange', handleHashChange);
+
+        function handleHashChange() {
+            // 現在のアンカー（hash部分）を取得
+            const hash = location.hash || "なし";
+            // .log要素に現在のアンカーを表示
+            document.querySelector('.log').innerHTML = `現在のアンカーは ${hash} です。`;
+        }
+    </script>
+</body>
+</html>

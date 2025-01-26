@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnApple">Apple</button>
+    <button id="btnOrange">Orange</button>
+
+    <script>
+        // Apple ボタンをクリックしたとき
+        document.querySelector(`#btnApple`).addEventListener(`click`, () => {            
+            document.title = `apple 🍎`;
+        });
+
+        // Orange ボタンをクリックしたとき
+        document.querySelector(`#btnOrange`).addEventListener(`click`, () => {            
+            document.title = `orange 🍊`;
+        });
+    </script>
+</body>
+</html>
