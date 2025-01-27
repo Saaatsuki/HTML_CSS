@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マウスカーソル追従</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #fabe00;
+            overflow: scroll; /* スクロールを有効化 */
+            height: 200vh; /* ページの高さを画面の2倍に設定 */
+        }
+        .charactor {
+            position: absolute;
+            width: 10vw; /* 画面幅に応じたサイズ指定 */
+            height: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/sub-hellokitty-mimmy.png" class="charactor" />
+    <script>
+        // スクロールイベント
+        window.addEventListener('scroll', () => {
+            console.log(`スクロール位置: X=${window.scrollX}, Y=${window.scrollY}`);
+        });
+
+        const charactor = document.querySelector('.charactor');
+        let isFollowing = false; // 追従状態を管理
+
+        // マウスが動いたときに位置を更新
+        const followMouse = (event) => {
+            if (isFollowing) {
+                charactor.style.left = `${event.pageX - charactor.offsetWidth / 2}px`;
+                charactor.style.top = `${event.pageY - charactor.offsetHeight / 2}px`;
+            }
+        };
+
+        // マウスボタンを押したときに追従開始
+        document.addEventListener('mousedown', () => {
+            isFollowing = true;
+        });
+
+        // マウスボタンを離したときに追従停止
+        document.addEventListener('mouseup', () => {
+            isFollowing = false;
+        });
+
+        // マウスが動いたときのイベント
+        document.addEventListener('mousemove', followMouse);
+    </script>
+</body>
+</html>
