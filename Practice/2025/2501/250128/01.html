@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+<body>
+    <ul id="my-list">
+        <li class="list">リスト1</li>
+        <li class="list">リスト2</li>
+        <li class="list">リスト3</li>
+    </ul>
+    <script>
+        // 最初の `.list` の要素のみ取得
+        const myList = document.querySelector('.list');
+        myList.innerHTML = `りんご`;
+
+        // すべての `.list` を変更する場合
+        document.querySelectorAll('.list').forEach(item => {
+            item.innerHTML = `りんご`;
+        });
+    </script>
+</body>
+</html>
