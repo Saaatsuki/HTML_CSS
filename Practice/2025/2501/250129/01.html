@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+<body>
+    <div id="foo"></div>
+
+    <ul class="list">
+        <li class="item">リスト1</li>
+        <li class="item">リスト2</li>
+        <li class="item">リスト3</li>
+    </ul>
+
+    <script>
+        // #foo を取得（修正不要）
+        document.querySelector("#foo");
+
+        // 2番目の .item 要素を取得（スペルミス修正）
+        const item2 = document.querySelector(".list .item:nth-child(2)");
+        item2.innerHTML = `🐿と2`
+    </script>
+</body>
+</html>
