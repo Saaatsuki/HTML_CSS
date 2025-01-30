@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <style>
+        /* 全体の背景色 */
+        body {
+            background-color: #1e1e2e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* ボックスのデザイン */
+        .box {
+            background: linear-gradient(135deg, #b09aff, #594480);
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px;
+            margin: 10px auto;
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* ホバー時のエフェクト */
+        .box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">ボックス1</div>
+    <div class="box">ボックス2</div>
+    <div class="box">ボックス3</div>
+
+    <script>
+        // `.box` クラスを持つすべての要素を取得
+        document.querySelectorAll(`.box`).forEach((targetBox) => {
+            // クリックイベントを追加
+            targetBox.addEventListener(`click`, () => {
+                // クリックしたボックスのテキストを取得し、アラート表示
+                alert(`${targetBox.textContent}がクリックされました(*´ω｀*)`);
+            });
+        });
+    </script>
+</body>
+</html>
