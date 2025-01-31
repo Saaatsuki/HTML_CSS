@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light<->Dark</title>
+    <style>
+        /* 基本のライトモード */
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* 横方向の中央揃え */
+            height: 100vh; /* ビューポート高さを100%に */
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        /* ボタンのスタイル */
+        .theme-change-button {
+            padding: 10px 20px;
+            font-size: 24px;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-change-button:hover {
+            background-color: #ddd;
+            transform: scale(1.1);
+        }
+
+        /* ダークモード */
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* ダークモードボタン */
+        .theme-change-button.dark-mode {
+            background-color: #555;
+            border-color: #444;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-change-button">🌞</button>
+    <h1>At the moment of my dream...</h1>
+
+    <script>
+        // ボタンの要素を取得
+        const themeChangeButton = document.querySelector('.theme-change-button');
+        
+        // 現在のテーマ状態を保存
+        let isDarkMode = false;
+
+        // ボタンのクリックイベント
+        themeChangeButton.addEventListener('click', () => {
+            if (isDarkMode) {
+                // ダークモードを解除（ライトモード）
+                document.body.classList.remove('dark-mode');
+                themeChangeButton.textContent = '🌞'; // ライトモードに戻す
+                themeChangeButton.classList.remove('dark-mode');
+            } else {
+                // ダークモードを有効化
+                document.body.classList.add('dark-mode');
+                themeChangeButton.textContent = '🌙'; // ダークモードに変更
+                themeChangeButton.classList.add('dark-mode');
+            }
+            // モード状態を切り替える
+            isDarkMode = !isDarkMode;
+        });
+    </script>
+</body>
+</html>
