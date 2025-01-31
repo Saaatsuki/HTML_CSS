@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天気</title>
+    <style>
+        /* 基本のスタイル */
+        body {
+            background-color: skyblue;
+            color: aliceblue;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .yoho {
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* 雨のアニメーション */
+        @keyframes rain {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .rain-drop {
+            position: absolute;
+            top: -10px;
+            width: 2px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            animation: rain 1.5s infinite linear;
+        }
+
+        /* 雪のアニメーション */
+        @keyframes snow {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            animation: snow 3s infinite linear;
+        }
+
+    </style>
+</head>
+<body>
+    <p class="yoho"></p>
+
+    <script>
+        // 天気予報の情報を格納した配列
+        const tenki_li = ["晴🌞", "雨☔", "雪⛄", "曇☁"];
+
+        // ランダムに天気を選択
+        const tenki = tenki_li[Math.floor(Math.random() * tenki_li.length)];
+
+        // メッセージを作成
+        const tenkiYoho_msg = `明日の天気は${tenki}です。`;
+
+        // HTMLに表示
+        const tenkiYoho = document.querySelector(".yoho");
+        tenkiYoho.textContent = tenkiYoho_msg;
+
+        // 雨または雪のアニメーションを表示
+        if (tenki === "雨☔") {
+            createRain();
+        } else if (tenki === "雪⛄") {
+            createSnow();
+        }
+
+        // 雨のアニメーション作成
+        function createRain() {
+            for (let i = 0; i < 100; i++) {
+                const rainDrop = document.createElement("div");
+                rainDrop.classList.add("rain-drop");
+                rainDrop.style.left = `${Math.random() * 100}vw`; // ランダムなX位置
+                rainDrop.style.animationDuration = `${Math.random() * 2 + 1}s`; // ランダムなアニメーション速度
+                document.body.appendChild(rainDrop);
+            }
+        }
+
+        // 雪のアニメーション作成
+        function createSnow() {
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                snowflake.style.left = `${Math.random() * 100}vw`; // ランダムなX位置
+                snowflake.style.animationDuration = `${Math.random() * 3 + 3}s`; // ランダムなアニメーション速度
+                snowflake.style.animationDelay = `${Math.random() * 3}s`; // ランダムな遅延時間
+                document.body.appendChild(snowflake);
+            }
+        }
+    </script>
+</body>
+</html>

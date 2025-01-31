@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 基本のスタイル */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* モーダル背景 */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden; /* 初期状態は非表示 */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* モーダルコンテンツ */
+        .modal-inner {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 画像 */
+        .modal-inner img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* ボタン */
+        #create-modal-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            color: #f9f9f9;
+            transition: background-color 0.3s ease;
+        }
+
+        #create-modal-button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <button id="create-modal-button">モーダルウィンドウの生成</button>
+
+    <script>
+        // モーダルウィンドウを表示する関数
+        function displayModalWindow() {
+            // モーダル要素の作成
+            const modalElement = document.createElement('div');
+            modalElement.classList.add('modal');
+
+            // モーダル内部要素の作成
+            const innerElement = document.createElement('div');
+            innerElement.classList.add('modal-inner');
+            innerElement.innerHTML = `
+                <img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-hellokitty.png" alt="Hello Kitty" />
+                <p>出来立てのポップコーンはいかが？</p>
+                <button>閉じる</button>
+            `;
+            
+            // モーダルに内部要素を追加
+            modalElement.appendChild(innerElement);
+
+            // モーダルをボディに追加
+            document.body.appendChild(modalElement);
+
+            // モーダルを表示
+            setTimeout(() => modalElement.classList.add('show'), 10);
+
+            // 閉じるボタンがクリックされたときの処理
+            const closeButton = innerElement.querySelector('button');
+            closeButton.addEventListener('click', closeModalWindow);
+
+            // モーダルを閉じる関数
+            function closeModalWindow() {
+                modalElement.classList.remove('show');
+                setTimeout(() => modalElement.remove(), 300); // アニメーション後に削除
+            }
+        }
+
+        // ボタンにクリックイベントを追加
+        document.querySelector('#create-modal-button')
+            .addEventListener('click', displayModalWindow);
+    </script>
+</body>
+</html>
