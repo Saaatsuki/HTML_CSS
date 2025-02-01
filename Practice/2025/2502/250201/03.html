@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- IDの名前を修正 -->
+    <textarea id="myText"></textarea>  
+    <script>
+        // 正しいIDで要素を取得
+        const element = document.querySelector(`#myText`);
+
+        // 入力イベントを追加して、入力内容をリアルタイムで表示
+        element.addEventListener("input", function(event) {
+            console.log(event.target.value);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ユーザーが入力できるテキストボックス -->
+    <input type="text" id="myText" />
+    <!-- 入力内容をリアルタイムで表示するための段落タグ -->
+    <p class="log"></p>
+
+    <script>
+        // テキストボックスの要素を取得
+        const element = document.querySelector(`#myText`);
+
+        // 入力イベント（ユーザーが入力するたびに発生）を追加
+        element.addEventListener(`input`, handleChange);
+
+        // 入力が変更されたときに実行される関数
+        function handleChange(event) {
+            // 入力された値を取得
+            const value = event.target.value;
+
+            // <p>タグの中身を入力された値に更新
+            document.querySelector(`.log`).innerHTML = value;
+        }
+    </script>
+</body>
+</html>
