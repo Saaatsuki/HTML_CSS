@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label><input type="checkbox" id="cbA" value="A" />
+        チェックボックスA
+    </label>
+    <label><input type="checkbox" id="cbB" value="B" checked/>
+        チェックボックスB
+    </label>
+    <label><input type="checkbox" id="cbC" value="C" />
+        チェックボックスC
+    </label>
+    <script>
+        // チェックボックスを取得
+        const cbA = document.querySelector(`#cbA`);
+        const cbB = document.querySelector(`#cbB`);
+        const cbC = document.querySelector(`#cbC`);
+
+        // チェックが変更されるたびに状態を表示
+        function logCheckedState() {
+            console.log(`checkedA : ${cbA.checked}`);
+            console.log(`checkedB : ${cbB.checked}`);
+            console.log(`checkedC : ${cbC.checked}`);
+        }
+
+        // 各チェックボックスにイベントリスナーを追加
+        cbA.addEventListener("change", logCheckedState);
+        cbB.addEventListener("change", logCheckedState);
+        cbC.addEventListener("change", logCheckedState);
+
+        // 初期状態を表示
+        logCheckedState();
+    </script>
+</body>
+</html>

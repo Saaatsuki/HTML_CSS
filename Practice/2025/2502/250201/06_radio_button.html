@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radioGroup</title>
+</head>
+<body>
+    <form action="" id="radioGroup">
+        <!-- フルーツの選択 -->
+        <label><input type="radio" name="fruit" value="apple" checked/>
+            Apple🍎
+        </label>
+        <label><input type="radio" name="fruit" value="orange" />
+            Orange🍊
+        </label>
+        <label><input type="radio" name="fruit" value="peach" />
+            Peach🍑
+        </label>
+
+        <!-- 飲み物の選択 -->
+        <label><input type="radio" name="drink" value="coke" checked/>
+            Coke🥤
+        </label>
+        <label><input type="radio" name="drink" value="wine" />
+            Wine🍷
+        </label>
+        <label><input type="radio" name="drink" value="tea" />
+            Tea🍵
+        </label>
+    </form>
+
+    <script>
+        const element = document.querySelector(`form#radioGroup`);
+
+        // 選択されている fruit の値を取得
+        const fruitValue = element.querySelector(`input[name="fruit"]:checked`).value;
+
+        // 選択されている drink の値を取得
+        const drinkValue = element.querySelector(`input[name="drink"]:checked`).value;
+
+        console.log(`選ばれたフルーツ: ${fruitValue}`);
+        console.log(`選ばれた飲み物: ${drinkValue}`);
+    </script>
+</body>
+</html>
