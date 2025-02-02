@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        /* ページ全体のスタイル */
+        body {
+            display: flex;
+            justify-content: center; /* 中央配置 */
+            align-items: center; /* 縦方向も中央配置 */
+            height: 100vh; /* 画面の高さ全体を使用 */
+            background-color: #ffccff; /* かわいらしいピンク背景 */
+        }
+
+        /* アニメーションする要素 */
+        .rect {
+            width: 150px; /* 四角形の幅 */
+            height: 150px; /* 四角形の高さ */
+            background-color: #ff66b2; /* かわいいピンク色 */
+            border-radius: 50px; /* 角を丸く */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px; /* 文字のサイズ */
+            color: white; /* 文字色 */
+            font-weight: bold;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* 影をつけてかわいらしく */
+        }
+
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- アニメーションさせる要素 -->
+    <div class="rect"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" /></div>
+
+    <script>
+        // アニメーションさせる要素を取得
+        const element = document.querySelector(`.rect`);
+
+        // Web Animations API を使ってアニメーションを定義
+        element.animate(
+            {
+                transform: [
+                    `translateX(0px) rotate(0deg)`,  // 最初の状態
+                    `translateX(300px) rotate(360deg)` // 右に移動しながら回転
+                ]
+            },
+            {
+                transform: [
+                    `scare(1)`,
+                    `scale(5)`
+                ]
+            },
+            {
+                duration: 3000, // アニメーションの時間（3秒）
+                iterations: Infinity, // 無限に繰り返す
+                direction: `alternate`, // 行ったり来たりする
+                easing: `ease-in-out` // ゆっくり始まり、ゆっくり止まる
+            }
+        );
+
+    </script>
+
+</body>
+</html>
