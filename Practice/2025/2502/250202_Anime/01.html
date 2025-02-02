@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボタンクリックで表示を切り替え</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .target {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: lightcoral;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .state-show {
+            display: block;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: cornflowerblue;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <button>表示を切り替える</button>
+    <div class="target">表示・非表示を切り替える要素</div>
+
+    <script>
+        // ボタンを取得
+        const button = document.querySelector("button");
+
+        // ボタンクリック時の処理
+        button.addEventListener("click", handleClick);
+
+        function handleClick() {
+            const element = document.querySelector(".target");
+
+            // クラスを切り替えて表示・非表示を制御
+            element.classList.toggle("state-show");
+        }
+    </script>
+</body>
+</html>
