@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        /* ページ全体のスタイル */
+        body {
+            display: flex;
+            justify-content: center; /* 中央配置 */
+            align-items: center; /* 縦方向も中央配置 */
+            height: 100vh; /* 画面の高さ全体を使用 */
+            background-color: #ccecff; /* かわいらしいクリーム色の背景 */
+            overflow: hidden; /* スクロール防止 */
+        }
+
+        /* 追いかけてくる画像のスタイル */
+        .stoker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            will-change: transform;
+            pointer-events: none; /* マウスの邪魔をしない */
+        }
+
+        img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 追いかけてくる画像 -->
+    <img src="https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/spots/h1_char.png" class="stoker"/>
+
+    <script>
+        // 追いかける要素を取得
+        const element = document.querySelector(`.stoker`);
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let currentX = 0;
+        let currentY = 0;
+
+        // マウスの位置を取得
+        document.body.addEventListener(`mousemove`, (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        });
+
+        // 追従アニメーション
+        function tick() {
+            requestAnimationFrame(tick);
+
+            // 追従する動き（イージング効果）
+            currentX += (mouseX - currentX) * 0.02;
+            currentY += (mouseY - currentY) * 0.02;
+
+            // 修正: translate のスペルミスを修正
+            element.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        }
+
+        // アニメーション開始
+        requestAnimationFrame(tick);
+
+    </script>
+
+</body>
+</html>
