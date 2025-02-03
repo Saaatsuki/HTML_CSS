@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmet</title>
+</head>
+<body>
+    <p>
+        <img src="" alt="" data-src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-badtzmaru-1.png" width="320">
+        <img src="" alt="" data-src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-keroppi.png" width="320">
+    </p>
+    <button class="btn">読み込む</button>
+
+    <script>
+        const srcMap = new Map();
+
+        // 修正: 正しいイベント名にする
+        window.addEventListener('DOMContentLoaded', () => {
+            const imgs = document.querySelectorAll('img'); // 修正: 全ての img を取得
+            imgs.forEach((img) => {
+                srcMap.set(img, img.dataset.src);
+                img.removeAttribute('src'); // ここは省略してもOK
+            });
+        });
+
+        // ボタンを押したときに画像を読み込む処理
+        document.querySelector('.btn').addEventListener('click', () => {
+            document.querySelectorAll('img').forEach((img) => {
+                if (srcMap.has(img)) {
+                    img.src = srcMap.get(img); // data-src の値を src にセット
+                }
+            });
+        });
+    </script>
+</body>
+</html>
